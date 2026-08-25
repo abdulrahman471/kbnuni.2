@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SGT University - Master Interactive App Script
+   SGT University, GITAM & NIAT India Master Interactive App Script
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,14 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto-rotate 3D carousel every 4 seconds
   setInterval(() => {
     currentIndex = (currentIndex + 1) % cards.length;
     updateCarousel3D();
   }, 4000);
 
   // ==========================================
-  // 2. AI CHATBOT WIDGET & POPUP INTERACTIVITY
+  // 2. NIAT INDIA BENEFITS TABS LOGIC
+  // ==========================================
+
+  const niatTabs = document.querySelectorAll('.niat-nav-tab');
+  niatTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      niatTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      showToast(`Showing ${tab.innerText} for SGTians`, 'info');
+    });
+  });
+
+  // ==========================================
+  // 3. AI CHATBOT WIDGET & POPUP INTERACTIVITY
   // ==========================================
 
   const chatbotToggle = document.getElementById('chatbot-toggle-btn');
@@ -67,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = chatInput.value.trim();
     if (!text) return;
 
-    // Append User Message
     const userMsg = document.createElement('div');
     userMsg.className = 'chat-msg chat-msg-user';
     userMsg.innerText = text;
@@ -76,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
     chatInput.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // Bot Automated Response Generator
     setTimeout(() => {
       const botMsg = document.createElement('div');
       botMsg.className = 'chat-msg chat-msg-bot';
@@ -105,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 3. SCROLL TO TOP & STICKY TABS
+  // 4. SCROLL TO TOP & STICKY TABS
   // ==========================================
 
   const scrollTopBtn = document.getElementById('scroll-top-btn');
@@ -115,20 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Sticky right tabs event triggers
   document.getElementById('sticky-reg-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sticky-apply-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('header-apply-now-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sgt-online-btn')?.addEventListener('click', () => openApplyModal());
 
-  // Accessibility toggle feedback
   document.getElementById('accessibility-btn')?.addEventListener('click', () => {
     showToast('Accessibility High Contrast Mode Toggled', 'info');
     document.body.classList.toggle('high-contrast');
   });
 
   // ==========================================
-  // 4. MODALS & TOAST NOTIFICATIONS
+  // 5. MODALS & TOAST NOTIFICATIONS
   // ==========================================
 
   const applyModal = document.getElementById('apply-modal');
