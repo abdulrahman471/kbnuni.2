@@ -25,13 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Direct click on any card brings it to center!
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      currentIndex = i;
+      updateCarousel3D();
+      showToast(`Selected ${card.querySelector('h4')?.innerText || 'Discipline'}`, 'info');
+    });
+  });
+
   if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       currentIndex = (currentIndex - 1 + cards.length) % cards.length;
       updateCarousel3D();
     });
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       currentIndex = (currentIndex + 1) % cards.length;
       updateCarousel3D();
     });
@@ -40,10 +51,55 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     currentIndex = (currentIndex + 1) % cards.length;
     updateCarousel3D();
-  }, 4000);
+  }, 4500);
 
   // ==========================================
-  // 2. FAQ ACCORDION INTERACTIVITY
+  // 2. HEADER COURSE SELECT SYNC
+  // ==========================================
+
+  const headerCourseSelect = document.getElementById('header-course-select');
+  const modalCourseSelect = document.getElementById('modal-course-select');
+
+  if (headerCourseSelect) {
+    headerCourseSelect.addEventListener('change', (e) => {
+      const selectedCourse = e.target.value;
+      if (selectedCourse) {
+        if (modalCourseSelect) modalCourseSelect.value = selectedCourse;
+        openApplyModal();
+        showToast(`Selected ${selectedCourse} - Starting Application Form`, 'info');
+      }
+    });
+  }
+
+  // ==========================================
+  // 3. STATS CARDS INTERACTIVITY
+  // ==========================================
+
+  const statsCards = document.querySelectorAll('.stats-card');
+  statsCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const statInfo = card.getAttribute('data-stat') || 'SGT Excellence Feature';
+      showToast(statInfo, 'info');
+    });
+  });
+
+  // ==========================================
+  // 4. TOP PLACEMENTS STUDENT CARDS CLICK
+  // ==========================================
+
+  const placementCards = document.querySelectorAll('.student-placement-card');
+  placementCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const name = card.getAttribute('data-name');
+      const pkg = card.getAttribute('data-package');
+      const company = card.getAttribute('data-company');
+      const role = card.getAttribute('data-role');
+      showToast(`🎉 ${name} placed at ${company} as ${role} with package ${pkg}!`);
+    });
+  });
+
+  // ==========================================
+  // 5. FAQ ACCORDION & PILL TABS
   // ==========================================
 
   const faqItems = document.querySelectorAll('.faq-item');
@@ -58,18 +114,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Video Aftermovie trigger
-  document.getElementById('play-video-btn')?.addEventListener('click', () => {
-    showToast('Playing 12 Hour Hackathon Official Aftermovie...', 'info');
-  });
-
-  // Talk to Counsellor button
-  document.getElementById('talk-counsellor-btn')?.addEventListener('click', () => {
-    openApplyModal();
+  const faqPillTabs = document.querySelectorAll('#faq-pill-tabs .tab-btn');
+  faqPillTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      faqPillTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      showToast(`Filtered FAQ category: ${tab.innerText}`, 'info');
+    });
   });
 
   // ==========================================
-  // 3. AI CHATBOT WIDGET & POPUP INTERACTIVITY
+  // 6. VIDEO MODAL PLAYER LOGIC
+  // ==========================================
+
+  const videoModal = document.getElementById('video-modal');
+  const closeVideoModalBtn = document.getElementById('close-video-modal');
+  const playVideoBtn = document.getElementById('play-video-btn');
+
+  if (playVideoBtn && videoModal) {
+    playVideoBtn.addEventListener('click', () => {
+      videoModal.classList.add('active');
+      showToast('Playing 12-Hour Hackathon Official Aftermovie', 'info');
+    });
+  }
+
+  if (closeVideoModalBtn && videoModal) {
+    closeVideoModalBtn.addEventListener('click', () => {
+      videoModal.classList.remove('active');
+    });
+  }
+
+  // ==========================================
+  // 7. COUNSELLOR BANNER & MODALS
+  // ==========================================
+
+  document.getElementById('talk-counsellor-btn')?.addEventListener('click', () => {
+    openApplyModal();
+    showToast('Connecting with SGT Senior Counselor...', 'info');
+  });
+
+  const applyModal = document.getElementById('apply-modal');
+  const closeApplyModalBtn = document.getElementById('close-apply-modal');
+
+  function openApplyModal() {
+    if (applyModal) applyModal.classList.add('active');
+  }
+
+  function closeModals() {
+    if (applyModal) applyModal.classList.remove('active');
+    if (videoModal) videoModal.classList.remove('active');
+  }
+
+  if (closeApplyModalBtn) closeApplyModalBtn.addEventListener('click', closeModals);
+
+  if (applyModal) {
+    applyModal.addEventListener('click', (e) => {
+      if (e.target === applyModal) closeModals();
+    });
+  }
+
+  // ==========================================
+  // 8. AI CHATBOT WIDGET LOGIC
   // ==========================================
 
   const chatbotToggle = document.getElementById('chatbot-toggle-btn');
@@ -128,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 4. SCROLL TO TOP & STICKY TABS
+  // 9. SCROLL TO TOP & STICKY TABS
   // ==========================================
 
   const scrollTopBtn = document.getElementById('scroll-top-btn');
@@ -140,6 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('sticky-reg-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sticky-apply-btn')?.addEventListener('click', () => openApplyModal());
+  document.getElementById('sticky-contact-btn')?.addEventListener('click', () => {
+    openApplyModal();
+    showToast('Opening SGT Contact & Admission Helpdesk', 'info');
+  });
   document.getElementById('header-apply-now-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sgt-online-btn')?.addEventListener('click', () => openApplyModal());
 
@@ -149,27 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 5. MODALS & TOAST NOTIFICATIONS
+  // 10. TOAST NOTIFICATIONS HELPER
   // ==========================================
-
-  const applyModal = document.getElementById('apply-modal');
-  const closeApplyModalBtn = document.getElementById('close-apply-modal');
-
-  function openApplyModal() {
-    if (applyModal) applyModal.classList.add('active');
-  }
-
-  function closeModals() {
-    if (applyModal) applyModal.classList.remove('active');
-  }
-
-  if (closeApplyModalBtn) closeApplyModalBtn.addEventListener('click', closeModals);
-
-  if (applyModal) {
-    applyModal.addEventListener('click', (e) => {
-      if (e.target === applyModal) closeModals();
-    });
-  }
 
   function showToast(message, type = 'success') {
     const container = document.getElementById('toast-container');
