@@ -1,30 +1,30 @@
 /* ==========================================================================
-   SGT / KBN University - Application Logic (Vanilla JS)
+   SGT University - Application Logic (Vanilla JS)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
-  // PROGRAM DATA & DYNAMIC FILTERING
+  // PROGRAM DATA & DYNAMIC FILTERING (SGT COURSES)
   // ==========================================
 
   const programs = [
     {
       id: 1,
-      title: 'MBBS (Bachelor of Medicine)',
+      title: 'MBBS (Bachelor of Medicine & Surgery)',
       category: 'ug',
-      school: 'Faculty of Medicine',
-      duration: '5.5 Years (Inc. Internship)',
+      school: 'Faculty of Medicine & Health Sciences (FMHS)',
+      duration: '5.5 Years (Inc. Clinical Internship)',
       eligibility: '10+2 with PCB (50%+) & NEET Qualified',
-      fee: '₹18,000,000 / Total'
+      fee: '₹18,00,000 / Year'
     },
     {
       id: 2,
       title: 'B.Tech Computer Science (AI & ML)',
       category: 'ug',
-      school: 'Faculty of Engineering',
+      school: 'Faculty of Engineering & Tech (FET)',
       duration: '4 Years',
-      eligibility: '10+2 with PCM (50%+) or JEE Main',
+      eligibility: '10+2 with PCM (50%+) or JEE Main 2026',
       fee: '₹1,90,000 / Year'
     },
     {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 6,
       title: 'MBA in Business Analytics & HR',
       category: 'pg',
-      school: 'Faculty of Management',
+      school: 'Faculty of Commerce & Management',
       duration: '2 Years',
       eligibility: 'Graduation in any stream (50%+)',
       fee: '₹2,10,000 / Year'
@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 7,
       title: 'M.Sc Medical Biotechnology',
       category: 'pg',
-      school: 'Faculty of Allied Health',
+      school: 'Faculty of Allied Health Sciences',
       duration: '2 Years',
       eligibility: 'B.Sc in Life Sciences / Bio',
       fee: '₹95,000 / Year'
     },
     {
       id: 8,
-      title: 'B.Sc Nursing',
+      title: 'B.Sc Nursing (Basic)',
       category: 'ug',
       school: 'Faculty of Nursing',
       duration: '4 Years',
@@ -83,9 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 9,
-      title: 'Ph.D in Medical / Dental Sciences',
+      title: 'Ph.D in Medicine / Dental Sciences',
       category: 'phd',
-      school: 'Research & Doctoral Cell',
+      school: 'SGT Research & Doctoral Cell',
       duration: '3 - 5 Years',
       eligibility: 'Master\'s Degree (55%+)',
       fee: '₹80,000 / Year'
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 12,
       title: 'M.Tech Artificial Intelligence',
       category: 'pg',
-      school: 'Faculty of Engineering',
+      school: 'Faculty of Engineering & Tech (FET)',
       duration: '2 Years',
       eligibility: 'B.E. / B.Tech in relevant branch',
       fee: '₹1,20,000 / Year'
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="program-card">
         <div class="program-card-header">
           <span class="program-school-tag">${prog.school}</span>
-          <span class="badge badge-gold" style="font-size: 0.7rem;">2026 Open</span>
+          <span class="badge badge-gold" style="font-size: 0.7rem;">SGT 2026</span>
         </div>
         <h3 class="program-title">${prog.title}</h3>
         <div class="program-meta">
@@ -173,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
 
-    // Attach event listeners to newly rendered program apply buttons
     document.querySelectorAll('.program-apply-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const title = e.currentTarget.getAttribute('data-title');
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter tab listener
+  // Filter tabs listener
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       filterTabs.forEach(t => t.classList.remove('active'));
@@ -200,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial render
   renderPrograms();
 
   // ==========================================
@@ -213,8 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const campusData = {
     hospital: {
-      title: '800-Bed Multi-Specialty Super Specialty Hospital',
-      desc: 'Providing round-the-clock emergency medical services, advanced ICU units, modular operation theaters, and real-time clinical training for medical and nursing students.',
+      title: '800-Bed SGT Super Specialty Hospital',
+      desc: 'Providing round-the-clock emergency medical services, advanced ICU units, modular operation theaters, and real-time clinical training for medical and nursing students at SGT University.',
       icon: 'fa-hospital-user',
       features: ['24/7 Emergency & Trauma', 'Advanced MRI & CT Scan', 'Modular Operation Theaters', 'Robotic Surgery Simulation']
     },
@@ -269,22 +267,20 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
         `;
 
-        // Rebind tour button
         const tourBtn = document.getElementById('campus-modal-trigger');
         if (tourBtn) {
           tourBtn.addEventListener('click', () => {
-            showToast('Starting Virtual Tour Video Simulation...', 'info');
+            showToast('Starting SGT Virtual Tour Simulation...', 'info');
           });
         }
       }
     });
   });
 
-  // Rebind initial tour button
   const initialTourBtn = document.getElementById('campus-modal-trigger');
   if (initialTourBtn) {
     initialTourBtn.addEventListener('click', () => {
-      showToast('Starting Virtual Tour Video Simulation...', 'info');
+      showToast('Starting SGT Virtual Tour Simulation...', 'info');
     });
   }
 
@@ -359,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prospectusModal) prospectusModal.classList.remove('active');
   }
 
-  // Event Listeners for Open Modals
   document.getElementById('open-apply-modal-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('hero-apply-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('floating-apply-btn')?.addEventListener('click', () => openApplyModal());
@@ -377,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeApplyModalBtn?.addEventListener('click', closeModals);
   closeProspectusModalBtn?.addEventListener('click', closeModals);
 
-  // Close modal on backdrop click
   [applyModal, prospectusModal].forEach(modal => {
     if (modal) {
       modal.addEventListener('click', (e) => {
@@ -386,12 +380,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close modal on Escape key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModals();
   });
 
-  // TOAST NOTIFICATIONS
   function showToast(message, type = 'success') {
     const container = document.getElementById('toast-container');
     if (!container) return;
@@ -418,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroForm) {
     heroForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Enquiry Submitted! An Admissions Counselor will call you shortly.');
+      showToast('SGT Enquiry Submitted! Admission counselor will call you shortly.');
       heroForm.reset();
     });
   }
@@ -428,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalApplyForm.addEventListener('submit', (e) => {
       e.preventDefault();
       closeModals();
-      showToast('Application Registration Successful! Application ID: KBN-2026-' + Math.floor(1000 + Math.random() * 9000));
+      showToast('SGT Application Submitted! Application No: SGT-2026-' + Math.floor(1000 + Math.random() * 9000));
       modalApplyForm.reset();
     });
   }
@@ -438,16 +430,15 @@ document.addEventListener('DOMContentLoaded', () => {
     prospectusForm.addEventListener('submit', (e) => {
       e.preventDefault();
       closeModals();
-      showToast('Prospectus PDF Download Initiated!', 'info');
+      showToast('SGT Prospectus 2026 PDF Download Started!', 'info');
       prospectusForm.reset();
     });
   }
 
   document.getElementById('cta-call-btn')?.addEventListener('click', () => {
-    window.location.href = 'tel:+919319393212';
+    window.location.href = 'tel:18001025661';
   });
 
-  // Mobile menu toggle
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
   if (hamburgerBtn && navMenu) {
