@@ -43,16 +43,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 4000);
 
   // ==========================================
-  // 2. NIAT INDIA BENEFITS TABS LOGIC
+  // 2. FAQ ACCORDION INTERACTIVITY
   // ==========================================
 
-  const niatTabs = document.querySelectorAll('.niat-nav-tab');
-  niatTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      niatTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      showToast(`Showing ${tab.innerText} for SGTians`, 'info');
-    });
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (question) {
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    }
+  });
+
+  // Video Aftermovie trigger
+  document.getElementById('play-video-btn')?.addEventListener('click', () => {
+    showToast('Playing 12 Hour Hackathon Official Aftermovie...', 'info');
+  });
+
+  // Talk to Counsellor button
+  document.getElementById('talk-counsellor-btn')?.addEventListener('click', () => {
+    openApplyModal();
   });
 
   // ==========================================
