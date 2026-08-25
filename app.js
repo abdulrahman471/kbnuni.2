@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 4500);
 
   // ==========================================
-  // 2. HEADER COURSE SELECT SYNC
+  // 2. HERO & HEADER COURSE SELECT SYNC
   // ==========================================
 
   const headerCourseSelect = document.getElementById('header-course-select');
@@ -68,6 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
         openApplyModal();
         showToast(`Selected ${selectedCourse} - Starting Application Form`, 'info');
       }
+    });
+  }
+
+  document.getElementById('hero-apply-btn')?.addEventListener('click', () => openApplyModal());
+  document.getElementById('hero-explore-btn')?.addEventListener('click', () => {
+    window.location.href = '#disciplines';
+    showToast('Navigating to 200+ Courses & Disciplines', 'info');
+  });
+
+  const heroEnquiryForm = document.getElementById('hero-enquiry-form');
+  if (heroEnquiryForm) {
+    heroEnquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Enquiry Submitted! Downloading SGT 2026 Brochure...', 'success');
+      heroEnquiryForm.reset();
     });
   }
 
@@ -99,7 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 5. FAQ ACCORDION & PILL TABS
+  // 5. GITAM EVENTS DETAILS CLICK
+  // ==========================================
+
+  document.querySelectorAll('.btn-event-details').forEach(btn => {
+    btn.addEventListener('click', () => {
+      openApplyModal();
+      showToast('Event Pass Registration Open!', 'info');
+    });
+  });
+
+  // ==========================================
+  // 6. FAQ ACCORDION & PILL TABS
   // ==========================================
 
   const faqItems = document.querySelectorAll('.faq-item');
@@ -119,12 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
     tab.addEventListener('click', () => {
       faqPillTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+      tab.style.background = '#002B49';
+      tab.style.color = '#FFF';
       showToast(`Filtered FAQ category: ${tab.innerText}`, 'info');
     });
   });
 
   // ==========================================
-  // 6. VIDEO MODAL PLAYER LOGIC
+  // 7. VIDEO MODAL PLAYER LOGIC
   // ==========================================
 
   const videoModal = document.getElementById('video-modal');
@@ -145,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 7. COUNSELLOR BANNER & MODALS
+  // 8. COUNSELLOR BANNER & MODALS
   // ==========================================
 
   document.getElementById('talk-counsellor-btn')?.addEventListener('click', () => {
@@ -174,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 8. AI CHATBOT WIDGET LOGIC
+  // 9. AI CHATBOT WIDGET LOGIC
   // ==========================================
 
   const chatbotToggle = document.getElementById('chatbot-toggle-btn');
@@ -233,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 9. SCROLL TO TOP & STICKY TABS
+  // 10. SCROLL TO TOP & STICKY TABS
   // ==========================================
 
   const scrollTopBtn = document.getElementById('scroll-top-btn');
@@ -258,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 10. TOAST NOTIFICATIONS HELPER
+  // 11. TOAST NOTIFICATIONS HELPER
   // ==========================================
 
   function showToast(message, type = 'success') {
