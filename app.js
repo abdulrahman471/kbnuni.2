@@ -1,388 +1,154 @@
 /* ==========================================================================
-   SGT University - Application Logic (Vanilla JS)
+   SGT University - Master Interactive App Script
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
-  // PROGRAM DATA & DYNAMIC FILTERING (SGT COURSES)
+  // 1. SGT 3D PERSPECTIVE CAROUSEL LOGIC
   // ==========================================
 
-  const programs = [
-    {
-      id: 1,
-      title: 'MBBS (Bachelor of Medicine & Surgery)',
-      category: 'ug',
-      school: 'Faculty of Medicine & Health Sciences (FMHS)',
-      duration: '5.5 Years (Inc. Clinical Internship)',
-      eligibility: '10+2 with PCB (50%+) & NEET Qualified',
-      fee: '₹18,00,000 / Year'
-    },
-    {
-      id: 2,
-      title: 'B.Tech Computer Science (AI & ML)',
-      category: 'ug',
-      school: 'Faculty of Engineering & Tech (FET)',
-      duration: '4 Years',
-      eligibility: '10+2 with PCM (50%+) or JEE Main 2026',
-      fee: '₹1,90,000 / Year'
-    },
-    {
-      id: 3,
-      title: 'BDS (Bachelor of Dental Surgery)',
-      category: 'ug',
-      school: 'Faculty of Dental Sciences',
-      duration: '5 Years',
-      eligibility: '10+2 PCB & NEET Qualified',
-      fee: '₹3,50,000 / Year'
-    },
-    {
-      id: 4,
-      title: 'B.Pharm (Bachelor of Pharmacy)',
-      category: 'ug',
-      school: 'Faculty of Pharmacy',
-      duration: '4 Years',
-      eligibility: '10+2 with Physics, Chemistry, Bio/Math',
-      fee: '₹1,25,000 / Year'
-    },
-    {
-      id: 5,
-      title: 'BA LLB (Hons) Integrated',
-      category: 'ug',
-      school: 'Faculty of Law',
-      duration: '5 Years',
-      eligibility: '10+2 in any stream (45%+)',
-      fee: '₹1,40,000 / Year'
-    },
-    {
-      id: 6,
-      title: 'MBA in Business Analytics & HR',
-      category: 'pg',
-      school: 'Faculty of Commerce & Management',
-      duration: '2 Years',
-      eligibility: 'Graduation in any stream (50%+)',
-      fee: '₹2,10,000 / Year'
-    },
-    {
-      id: 7,
-      title: 'M.Sc Medical Biotechnology',
-      category: 'pg',
-      school: 'Faculty of Allied Health Sciences',
-      duration: '2 Years',
-      eligibility: 'B.Sc in Life Sciences / Bio',
-      fee: '₹95,000 / Year'
-    },
-    {
-      id: 8,
-      title: 'B.Sc Nursing (Basic)',
-      category: 'ug',
-      school: 'Faculty of Nursing',
-      duration: '4 Years',
-      eligibility: '10+2 PCB (45%+)',
-      fee: '₹1,10,000 / Year'
-    },
-    {
-      id: 9,
-      title: 'Ph.D in Medicine / Dental Sciences',
-      category: 'phd',
-      school: 'SGT Research & Doctoral Cell',
-      duration: '3 - 5 Years',
-      eligibility: 'Master\'s Degree (55%+)',
-      fee: '₹80,000 / Year'
-    },
-    {
-      id: 10,
-      title: 'Diploma in Pharmacy (D.Pharm)',
-      category: 'diploma',
-      school: 'Faculty of Pharmacy',
-      duration: '2 Years',
-      eligibility: '10+2 PCB / PCM',
-      fee: '₹75,000 / Year'
-    },
-    {
-      id: 11,
-      title: 'B.Sc (Hons) Agriculture',
-      category: 'ug',
-      school: 'Faculty of Agricultural Sciences',
-      duration: '4 Years',
-      eligibility: '10+2 Agriculture / PCB / PCM',
-      fee: '₹1,15,000 / Year'
-    },
-    {
-      id: 12,
-      title: 'M.Tech Artificial Intelligence',
-      category: 'pg',
-      school: 'Faculty of Engineering & Tech (FET)',
-      duration: '2 Years',
-      eligibility: 'B.E. / B.Tech in relevant branch',
-      fee: '₹1,20,000 / Year'
-    }
-  ];
+  const cards = document.querySelectorAll('.carousel-card');
+  const prevBtn = document.getElementById('prev-3d-btn');
+  const nextBtn = document.getElementById('next-3d-btn');
+  let currentIndex = 2; // Center card
 
-  const programContainer = document.getElementById('program-cards-container');
-  const filterTabs = document.querySelectorAll('#program-filter-tabs .tab-btn');
-  const searchInput = document.getElementById('program-search-input');
+  const positions = ['pos-left-2', 'pos-left-1', 'pos-center', 'pos-right-1', 'pos-right-2'];
 
-  let currentCategory = 'all';
-  let currentSearchQuery = '';
-
-  function renderPrograms() {
-    if (!programContainer) return;
-
-    const filtered = programs.filter(prog => {
-      const matchCategory = currentCategory === 'all' || prog.category === currentCategory;
-      const matchSearch = prog.title.toLowerCase().includes(currentSearchQuery) ||
-                          prog.school.toLowerCase().includes(currentSearchQuery);
-      return matchCategory && matchSearch;
-    });
-
-    if (filtered.length === 0) {
-      programContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: #FFF; border-radius: 12px; border: 1px dashed #CBD5E1;">
-          <i class="fa-solid fa-folder-open" style="font-size: 3rem; color: #94A3B8; margin-bottom: 1rem;"></i>
-          <h3 style="color: #0F172A;">No Programs Found</h3>
-          <p style="color: #64748B;">Try adjusting your filter or search keywords.</p>
-        </div>
-      `;
-      return;
-    }
-
-    programContainer.innerHTML = filtered.map(prog => `
-      <div class="program-card">
-        <div class="program-card-header">
-          <span class="program-school-tag">${prog.school}</span>
-          <span class="badge badge-gold" style="font-size: 0.7rem;">SGT 2026</span>
-        </div>
-        <h3 class="program-title">${prog.title}</h3>
-        <div class="program-meta">
-          <div class="meta-item">
-            <span class="meta-label">Duration</span>
-            <span class="meta-value"><i class="fa-regular fa-clock"></i> ${prog.duration}</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Eligibility</span>
-            <span class="meta-value">${prog.eligibility}</span>
-          </div>
-        </div>
-        <div class="program-card-footer">
-          <div class="fee-text">Fee: <span class="fee-amount">${prog.fee}</span></div>
-          <button class="btn btn-royal program-apply-btn" data-title="${prog.title}" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
-            Apply <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </div>
-    `).join('');
-
-    document.querySelectorAll('.program-apply-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const title = e.currentTarget.getAttribute('data-title');
-        openApplyModal(title);
-      });
-    });
-  }
-
-  // Filter tabs listener
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      currentCategory = tab.getAttribute('data-filter');
-      renderPrograms();
-    });
-  });
-
-  // Search input listener
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      currentSearchQuery = e.target.value.toLowerCase().trim();
-      renderPrograms();
-    });
-  }
-
-  renderPrograms();
-
-  // ==========================================
-  // CAMPUS LIFE INTERACTIVE TABS
-  // ==========================================
-
-  const campusTabs = document.querySelectorAll('#campus-tabs .campus-tab-btn');
-  const campusGraphic = document.getElementById('campus-graphic');
-  const campusTextContent = document.getElementById('campus-text-content');
-
-  const campusData = {
-    hospital: {
-      title: '800-Bed SGT Super Specialty Hospital',
-      desc: 'Providing round-the-clock emergency medical services, advanced ICU units, modular operation theaters, and real-time clinical training for medical and nursing students at SGT University.',
-      icon: 'fa-hospital-user',
-      features: ['24/7 Emergency & Trauma', 'Advanced MRI & CT Scan', 'Modular Operation Theaters', 'Robotic Surgery Simulation']
-    },
-    labs: {
-      title: 'AI, Robotics & High-Tech Research Labs',
-      desc: 'Equipped with supercomputers, IoT testing rigs, 3D printing equipment, and advanced biotech diagnostic tools for hands-on research.',
-      icon: 'fa-microchip',
-      features: ['NVIDIA AI Workstations', '3D Prototyping Lab', 'Gene Sequencing Rig', 'Robotic Automation Arms']
-    },
-    library: {
-      title: 'Central Digital Library & Learning Hub',
-      desc: 'Over 100,000+ print volumes, access to IEEE, PubMed, Springer e-journals, and 24/7 quiet air-conditioned study capsules.',
-      icon: 'fa-book-bookmark',
-      features: ['24/7 Access Hours', 'IEEE & PubMed Subscriptions', 'Digital E-Reader Zones', 'Quiet Group Study Rooms']
-    },
-    hostel: {
-      title: 'Eco-Friendly Hostels & Dining Hall',
-      desc: 'Separate secure AC hostels for boys & girls with Wi-Fi, 4-tier security, gym, indoor games, and hygienic multi-cuisine dining hall.',
-      icon: 'fa-hotel',
-      features: ['Air-Conditioned Rooms', '24/7 Security & CCTV', 'Multi-Cuisine Mess', 'In-House Laundry & Gym']
-    },
-    sports: {
-      title: 'Olympic-Standard Sports Arena',
-      desc: 'Including a cricket stadium, synthetic basketball & tennis courts, indoor badminton courts, and an all-weather swimming pool.',
-      icon: 'fa-volleyball',
-      features: ['Floodlit Cricket Ground', 'Synthetic Tennis Courts', 'Indoor Swimming Pool', 'Gymnasium & Yoga Studio']
-    }
-  };
-
-  campusTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      campusTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const key = tab.getAttribute('data-tab');
-      const data = campusData[key];
-
-      if (data && campusTextContent && campusGraphic) {
-        campusGraphic.innerHTML = `
-          <i class="fa-solid ${data.icon}"></i>
-          <h4>${data.title}</h4>
-        `;
-
-        campusTextContent.innerHTML = `
-          <h3>${data.title}</h3>
-          <p>${data.desc}</p>
-          <div class="campus-feature-list">
-            ${data.features.map(f => `<div class="campus-feature-item"><i class="fa-solid fa-circle-check"></i> ${f}</div>`).join('')}
-          </div>
-          <button class="btn btn-gold" id="campus-modal-trigger">
-            <i class="fa-solid fa-play"></i> Watch Virtual Campus Tour
-          </button>
-        `;
-
-        const tourBtn = document.getElementById('campus-modal-trigger');
-        if (tourBtn) {
-          tourBtn.addEventListener('click', () => {
-            showToast('Starting SGT Virtual Tour Simulation...', 'info');
-          });
-        }
+  function updateCarousel3D() {
+    cards.forEach((card, i) => {
+      card.className = 'carousel-card';
+      const posIndex = (i - currentIndex + 2 + cards.length) % cards.length;
+      if (posIndex < positions.length) {
+        card.classList.add(positions[posIndex]);
       }
     });
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      updateCarousel3D();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      updateCarousel3D();
+    });
+  }
+
+  // Auto-rotate 3D carousel every 4 seconds
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel3D();
+  }, 4000);
+
+  // ==========================================
+  // 2. AI CHATBOT WIDGET & POPUP INTERACTIVITY
+  // ==========================================
+
+  const chatbotToggle = document.getElementById('chatbot-toggle-btn');
+  const chatWindow = document.getElementById('chat-window');
+  const closeChatBtn = document.getElementById('close-chat-btn');
+  const chatInput = document.getElementById('chat-input');
+  const sendChatBtn = document.getElementById('send-chat-btn');
+  const chatBody = document.getElementById('chat-body');
+
+  function toggleChat() {
+    if (!chatWindow) return;
+    chatWindow.classList.toggle('active');
+  }
+
+  if (chatbotToggle) chatbotToggle.addEventListener('click', toggleChat);
+  if (closeChatBtn) closeChatBtn.addEventListener('click', toggleChat);
+
+  function handleSendChat() {
+    if (!chatInput || !chatBody) return;
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    // Append User Message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-msg chat-msg-user';
+    userMsg.innerText = text;
+    chatBody.appendChild(userMsg);
+
+    chatInput.value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // Bot Automated Response Generator
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-msg chat-msg-bot';
+
+      const lower = text.toLowerCase();
+      if (lower.includes('mbbs') || lower.includes('medical') || lower.includes('bams')) {
+        botMsg.innerText = 'SGT Faculty of Medicine (FMHS) offers MBBS & BAMS with clinical training at our 800-bed hospital. Admissions are based on NEET UG 2026 score.';
+      } else if (lower.includes('btech') || lower.includes('engineering') || lower.includes('fee')) {
+        botMsg.innerText = 'B.Tech AI/ML & CSE fee is approx ₹1.90 LPA. Scholarships up to 100% are available based on JEE Main / Class 12th Board marks.';
+      } else if (lower.includes('apply') || lower.includes('register')) {
+        botMsg.innerText = 'You can click the yellow "APPLY NOW" button at the top of the page to submit your application online.';
+      } else {
+        botMsg.innerText = 'Thank you for reaching out to SGT University! An admissions representative will assist you shortly. Helpline: 1800 102 5661.';
+      }
+
+      chatBody.appendChild(botMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 800);
+  }
+
+  if (sendChatBtn) sendChatBtn.addEventListener('click', handleSendChat);
+  if (chatInput) {
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleSendChat();
+    });
+  }
+
+  // ==========================================
+  // 3. SCROLL TO TOP & STICKY TABS
+  // ==========================================
+
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Sticky right tabs event triggers
+  document.getElementById('sticky-reg-btn')?.addEventListener('click', () => openApplyModal());
+  document.getElementById('sticky-apply-btn')?.addEventListener('click', () => openApplyModal());
+  document.getElementById('header-apply-now-btn')?.addEventListener('click', () => openApplyModal());
+  document.getElementById('sgt-online-btn')?.addEventListener('click', () => openApplyModal());
+
+  // Accessibility toggle feedback
+  document.getElementById('accessibility-btn')?.addEventListener('click', () => {
+    showToast('Accessibility High Contrast Mode Toggled', 'info');
+    document.body.classList.toggle('high-contrast');
   });
 
-  const initialTourBtn = document.getElementById('campus-modal-trigger');
-  if (initialTourBtn) {
-    initialTourBtn.addEventListener('click', () => {
-      showToast('Starting SGT Virtual Tour Simulation...', 'info');
-    });
-  }
-
   // ==========================================
-  // STATS COUNT-UP ANIMATION
-  // ==========================================
-
-  const statsSection = document.getElementById('stats-bar');
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let animatedStats = false;
-
-  function runStatsAnimation() {
-    statNumbers.forEach(stat => {
-      const target = parseInt(stat.getAttribute('data-target'), 10);
-      let count = 0;
-      const increment = Math.ceil(target / 40);
-      const timer = setInterval(() => {
-        count += increment;
-        if (count >= target) {
-          count = target;
-          clearInterval(timer);
-        }
-        if (target === 95) {
-          stat.innerText = count + '%';
-        } else {
-          stat.innerText = count + '+';
-        }
-      }, 40);
-    });
-  }
-
-  if (statsSection) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animatedStats) {
-          animatedStats = true;
-          runStatsAnimation();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    observer.observe(statsSection);
-  }
-
-  // ==========================================
-  // MODAL MANAGEMENT & TOASTS
+  // 4. MODALS & TOAST NOTIFICATIONS
   // ==========================================
 
   const applyModal = document.getElementById('apply-modal');
-  const prospectusModal = document.getElementById('prospectus-modal');
   const closeApplyModalBtn = document.getElementById('close-apply-modal');
-  const closeProspectusModalBtn = document.getElementById('close-prospectus-modal');
 
-  function openApplyModal(courseName = '') {
-    if (!applyModal) return;
-    applyModal.classList.add('active');
-    if (courseName) {
-      const selectElem = applyModal.querySelector('select');
-      if (selectElem) {
-        for (let i = 0; i < selectElem.options.length; i++) {
-          if (selectElem.options[i].text.toLowerCase().includes(courseName.toLowerCase())) {
-            selectElem.selectedIndex = i;
-            break;
-          }
-        }
-      }
-    }
+  function openApplyModal() {
+    if (applyModal) applyModal.classList.add('active');
   }
 
   function closeModals() {
     if (applyModal) applyModal.classList.remove('active');
-    if (prospectusModal) prospectusModal.classList.remove('active');
   }
 
-  document.getElementById('open-apply-modal-btn')?.addEventListener('click', () => openApplyModal());
-  document.getElementById('hero-apply-btn')?.addEventListener('click', () => openApplyModal());
-  document.getElementById('floating-apply-btn')?.addEventListener('click', () => openApplyModal());
-  document.getElementById('cta-apply-btn')?.addEventListener('click', () => openApplyModal());
+  if (closeApplyModalBtn) closeApplyModalBtn.addEventListener('click', closeModals);
 
-  document.getElementById('prospectus-top-btn')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (prospectusModal) prospectusModal.classList.add('active');
-  });
-
-  document.getElementById('hero-download-prospectus-btn')?.addEventListener('click', () => {
-    if (prospectusModal) prospectusModal.classList.add('active');
-  });
-
-  closeApplyModalBtn?.addEventListener('click', closeModals);
-  closeProspectusModalBtn?.addEventListener('click', closeModals);
-
-  [applyModal, prospectusModal].forEach(modal => {
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModals();
-      });
-    }
-  });
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModals();
-  });
+  if (applyModal) {
+    applyModal.addEventListener('click', (e) => {
+      if (e.target === applyModal) closeModals();
+    });
+  }
 
   function showToast(message, type = 'success') {
     const container = document.getElementById('toast-container');
@@ -392,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     toast.className = 'toast';
     let iconClass = 'fa-circle-check';
     if (type === 'info') iconClass = 'fa-circle-info';
-    if (type === 'error') iconClass = 'fa-triangle-exclamation';
 
     toast.innerHTML = `<i class="fa-solid ${iconClass}"></i> <span>${message}</span>`;
     container.appendChild(toast);
@@ -405,57 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
-  // FORM SUBMISSION HANDLERS
-  const heroForm = document.getElementById('hero-quick-form');
-  if (heroForm) {
-    heroForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('SGT Enquiry Submitted! Admission counselor will call you shortly.');
-      heroForm.reset();
-    });
-  }
-
   const modalApplyForm = document.getElementById('modal-apply-form');
   if (modalApplyForm) {
     modalApplyForm.addEventListener('submit', (e) => {
       e.preventDefault();
       closeModals();
-      showToast('SGT Application Submitted! Application No: SGT-2026-' + Math.floor(1000 + Math.random() * 9000));
+      showToast('SGT Application Submitted Successfully! Ref ID: SGT-2026-' + Math.floor(1000 + Math.random() * 9000));
       modalApplyForm.reset();
-    });
-  }
-
-  const prospectusForm = document.getElementById('prospectus-download-form');
-  if (prospectusForm) {
-    prospectusForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      closeModals();
-      showToast('SGT Prospectus 2026 PDF Download Started!', 'info');
-      prospectusForm.reset();
-    });
-  }
-
-  document.getElementById('cta-call-btn')?.addEventListener('click', () => {
-    window.location.href = 'tel:18001025661';
-  });
-
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  if (hamburgerBtn && navMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      if (navMenu.style.display === 'flex') {
-        navMenu.style.display = 'none';
-      } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '80px';
-        navMenu.style.left = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.background = '#FFFFFF';
-        navMenu.style.padding = '1.5rem';
-        navMenu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.1)';
-      }
     });
   }
 });
