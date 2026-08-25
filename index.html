@@ -16,10 +16,10 @@
   <div id="toast-container" class="toast-container"></div>
 
   <!-- 1. SGT OFFICIAL HEADER NAVBAR -->
-  <header class="sgt-header">
+  <header class="sgt-header" id="header">
     <div class="container">
       <div class="sgt-brand">
-        <a href="#" class="sgt-logo-box">
+        <a href="#header" class="sgt-logo-box">
           <div class="sgt-crest">SGT</div>
           <div class="sgt-logo-text">
             <h1>SGT UNIVERSITY</h1>
@@ -39,15 +39,15 @@
           <option value="mba">MBA</option>
           <option value="law">BA LLB</option>
         </select>
-        <span class="header-tag-btn">MBBS / BAMS / BDS</span>
+        <a href="#stats" class="header-tag-btn">MBBS / BAMS / BDS</a>
         <button class="btn-sgt-online" id="sgt-online-btn">SGT ONLINE</button>
         <button class="btn-sgt-apply" id="header-apply-now-btn">APPLY NOW</button>
       </div>
     </div>
   </header>
 
-  <!-- 2. SGT 6-CARD PHOTO STATS SECTION (MATCHING USER SCREENSHOT) -->
-  <section class="sgt-stats-section">
+  <!-- 2. SGT 6-CARD PHOTO STATS SECTION -->
+  <section class="sgt-stats-section" id="stats">
     <div class="container">
       <div class="sgt-stats-grid">
         
@@ -109,8 +109,8 @@
     </div>
   </section>
 
-  <!-- 3. SGT 3D PERSPECTIVE CAROUSEL (MULTIPLE DISCIPLINES, INFINITE POSSIBILITIES) -->
-  <section class="disciplines-carousel-section">
+  <!-- 3. SGT 3D PERSPECTIVE CAROUSEL SECTION -->
+  <section class="disciplines-carousel-section" id="disciplines">
     <div class="container">
       <div class="disciplines-header">
         <h2>Multiple Disciplines, Infinite Possibilities</h2>
@@ -118,7 +118,7 @@
       </div>
 
       <div class="carousel-3d-wrapper">
-        <button class="carousel-nav-arrow arrow-left" id="prev-3d-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-nav-arrow arrow-left" id="prev-3d-btn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
         
         <div class="carousel-3d-container" id="carousel-3d-container">
           <!-- Card 1 -->
@@ -163,13 +163,13 @@
           </div>
         </div>
 
-        <button class="carousel-nav-arrow arrow-right" id="next-3d-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="carousel-nav-arrow arrow-right" id="next-3d-btn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </div>
   </section>
 
-  <!-- 4. LATEST HAPPENINGS & IN THE PRESS -->
-  <section class="happenings-section">
+  <!-- 4. LATEST HAPPENINGS & IN THE PRESS SECTION -->
+  <section class="happenings-section" id="happenings">
     <div class="container">
       <div class="happenings-grid">
         
@@ -186,7 +186,7 @@
         </div>
 
         <!-- Right: In the Press List -->
-        <div class="happenings-col">
+        <div class="happenings-col" id="press">
           <h3>In the Press</h3>
           <div class="press-list">
             <div class="press-item-card">
@@ -220,8 +220,8 @@
     </div>
   </section>
 
-  <!-- 5. KNOW SGT UNIVERSITY (GITAM STYLE) -->
-  <section class="know-sgt-section">
+  <!-- 5. KNOW SGT UNIVERSITY SECTION -->
+  <section class="know-sgt-section" id="know-sgt">
     <div class="container">
       <div class="know-sgt-grid">
         <div class="know-sgt-text">
@@ -245,8 +245,8 @@
     </div>
   </section>
 
-  <!-- 6. UPCOMING EVENTS (GITAM STYLE) -->
-  <section class="events-section">
+  <!-- 6. UPCOMING EVENTS SECTION -->
+  <section class="events-section" id="events">
     <div class="container">
       <div class="events-header">
         <h2>Upcoming Events</h2>
@@ -264,7 +264,7 @@
           </div>
           <div class="event-footer">
             <button class="btn-event-details">View Details</button>
-            <a href="#" class="event-register-link">Register Here ↗</a>
+            <a href="#events" class="event-register-link">Register Here ↗</a>
           </div>
         </div>
 
@@ -279,7 +279,7 @@
           </div>
           <div class="event-footer">
             <button class="btn-event-details">View Details</button>
-            <a href="#" class="event-register-link">Register Here ↗</a>
+            <a href="#events" class="event-register-link">Register Here ↗</a>
           </div>
         </div>
 
@@ -294,15 +294,15 @@
           </div>
           <div class="event-footer">
             <button class="btn-event-details">View Details</button>
-            <a href="#" class="event-register-link">Register Here ↗</a>
+            <a href="#events" class="event-register-link">Register Here ↗</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. WHAT OUR STUDENTS SAY (GITAM REVIEWS STYLE) -->
-  <section class="student-reviews-section">
+  <!-- 7. WHAT OUR STUDENTS SAY SECTION -->
+  <section class="student-reviews-section" id="reviews">
     <div class="container">
       <div class="student-reviews-header">
         <h2>What our Students say...</h2>
@@ -327,14 +327,40 @@
     </div>
   </section>
 
-  <!-- FLOATING RIGHT STICKY TABS (ONLINE REGISTRATION, APPLY NOW, CONTACT US) -->
+  <!-- FOOTER SECTION -->
+  <footer class="footer" id="footer" style="background:#002B49; color:#94A3B8; padding: 4rem 0 2rem 0;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h2 style="color:#FFF; font-size:1.5rem; margin-bottom:1rem;">SGT UNIVERSITY</h2>
+          <p>Shree Guru Gobind Singh Tricentenary University, Gurugram, Delhi-NCR. NAAC A+ Accredited.</p>
+        </div>
+        <div class="footer-col">
+          <h4 style="color:#FFF; margin-bottom:1rem;">Direct Section Links</h4>
+          <ul class="footer-links" style="list-style:none; line-height:2;">
+            <li><a href="#stats" style="color:#CBD5E1;">#stats - Photo Stats Bar</a></li>
+            <li><a href="#disciplines" style="color:#CBD5E1;">#disciplines - 3D Discipline Carousel</a></li>
+            <li><a href="#happenings" style="color:#CBD5E1;">#happenings - Latest News & Press</a></li>
+            <li><a href="#know-sgt" style="color:#CBD5E1;">#know-sgt - Know SGT Info</a></li>
+            <li><a href="#events" style="color:#CBD5E1;">#events - Upcoming Events</a></li>
+            <li><a href="#reviews" style="color:#CBD5E1;">#reviews - Student Testimonials</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:2rem; padding-top:1.5rem; text-align:center;">
+        <p>&copy; 2026 SGT University. Direct Local Access Ready.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING RIGHT STICKY TABS -->
   <div class="sticky-right-tabs">
     <div class="sticky-tab-btn tab-online-reg" id="sticky-reg-btn">Online Registration</div>
     <div class="sticky-tab-btn tab-apply-now" id="sticky-apply-btn">Apply Now</div>
     <div class="sticky-tab-btn tab-contact-us" id="sticky-contact-btn">Contact Us</div>
   </div>
 
-  <!-- ACCESSIBILITY BUTTON (BOTTOM LEFT) -->
+  <!-- ACCESSIBILITY BUTTON -->
   <div class="accessibility-btn" id="accessibility-btn" title="Accessibility Options">
     <i class="fa-solid fa-universal-access"></i>
   </div>
@@ -344,8 +370,8 @@
     <i class="fa-solid fa-arrow-up"></i>
   </div>
 
-  <!-- AI CHATBOT WIDGET & MESSAGE BUBBLE (BOTTOM RIGHT) -->
-  <div class="chatbot-widget">
+  <!-- AI CHATBOT WIDGET -->
+  <div class="chatbot-widget" id="chatbot">
     <div class="chatbot-bubble">Hi! How can I assist you today?</div>
     <div class="chatbot-toggle-btn" id="chatbot-toggle-btn">
       <i class="fa-solid fa-comments"></i>
