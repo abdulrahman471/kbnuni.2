@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBN University | Admissions Open 2026-27 | Top Ranked University</title>
+  <meta name="description" content="KBN University offers 200+ UG, PG, PhD & Diploma courses across Medical, Engineering, Law, Pharmacy, Management & Nursing. Apply now for Admissions 2026-27.">
+  
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- TOP UTILITY ANNOUNCEMENT BAR -->
+  <header class="top-bar">
+    <div class="container">
+      <div class="announcement-ticker">
+        <span class="ticker-label"><i class="fa-solid fa-bullhorn"></i> Admissions 2026</span>
+        <span class="ticker-text">Applications Open for 2026-27 Session | Merit-Based Scholarships Up To 100% | Contact Helpline: +91 93193 93212</span>
+      </div>
+      <div class="top-links">
+        <a href="#campus"><i class="fa-solid fa-vr-cardboard"></i> Virtual Tour</a>
+        <a href="#" id="prospectus-top-btn"><i class="fa-solid fa-file-arrow-down"></i> Prospectus</a>
+        <a href="tel:+919319393212"><i class="fa-solid fa-phone"></i> Helpline</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STICKY NAVIGATION BAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="logo-container">
+        <div class="logo-icon">K</div>
+        <div class="logo-text">
+          <h2>KBN UNIVERSITY</h2>
+          <span>GURUGRAM / DELHI-NCR</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#programs" class="nav-link">Programs</a></li>
+        <li><a href="#faculties" class="nav-link">Faculties</a></li>
+        <li><a href="#campus" class="nav-link">Campus Life</a></li>
+        <li><a href="#placements" class="nav-link">Placements</a></li>
+        <li><a href="#scholarship" class="nav-link">Scholarships</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-gold" id="open-apply-modal-btn">
+          <i class="fa-solid fa-paper-plane"></i> Apply Now 2026
+        </button>
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH QUICK LEAD FORM -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape-glow-1"></div>
+      <div class="shape-glow-2"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge badge-gold">
+            <i class="fa-solid fa-award"></i> NAAC A+ Grade Equivalent | UGC Recognized
+          </div>
+          <h1>Shape Your Future with <span>World-Class Education</span> & Innovation</h1>
+          <p class="hero-subtitle">
+            Join a premier university offering 200+ specialized degree programs across Medical Sciences, Engineering, Law, Pharmacy, Management & Allied Health Sciences with state-of-the-art research facilities.
+          </p>
+
+          <div class="hero-highlights">
+            <div class="highlight-chip"><i class="fa-solid fa-hospital"></i> 800-Bed Super Specialty Hospital</div>
+            <div class="highlight-chip"><i class="fa-solid fa-microchip"></i> AI & Robotics Innovation Hub</div>
+            <div class="highlight-chip"><i class="fa-solid fa-briefcase"></i> 500+ Top Placement Partners</div>
+            <div class="highlight-chip"><i class="fa-solid fa-graduation-cap"></i> Up to 100% Merit Scholarship</div>
+          </div>
+
+          <div class="hero-buttons">
+            <button class="btn btn-gold" id="hero-apply-btn">
+              <i class="fa-solid fa-edit"></i> Start Application 2026
+            </button>
+            <button class="btn btn-glass" id="hero-download-prospectus-btn">
+              <i class="fa-solid fa-download"></i> Download Brochure
+            </button>
+          </div>
+        </div>
+
+        <!-- QUICK ENQUIRY GLASS CARD -->
+        <div class="hero-form-card">
+          <div class="form-header">
+            <h3>Admissions Open 2026-27</h3>
+            <p>Register now to receive personal counseling & prospectus</p>
+          </div>
+          <form id="hero-quick-form">
+            <div class="form-group">
+              <label class="form-label" for="hero-name">Full Name *</label>
+              <input type="text" id="hero-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="hero-email">Email Address *</label>
+              <input type="email" id="hero-email" class="form-control" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="hero-mobile">Mobile Number *</label>
+              <input type="tel" id="hero-mobile" class="form-control" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="hero-faculty">Select Faculty / Program Level</label>
+              <select id="hero-faculty" class="form-control">
+                <option value="medical">Faculty of Medicine & Health Sciences</option>
+                <option value="engineering">Faculty of Engineering & Technology</option>
+                <option value="management">Faculty of Commerce & Management</option>
+                <option value="law">Faculty of Law</option>
+                <option value="pharmacy">Faculty of Pharmacy</option>
+                <option value="nursing">Faculty of Nursing</option>
+                <option value="dental">Faculty of Dental Sciences</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-gold form-submit-btn">
+              Submit Enquiry <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p class="form-disclaimer"><i class="fa-solid fa-lock"></i> Your data is 100% safe & confidential</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE UNIVERSITY STATS COUNTER BAR -->
+  <div class="container">
+    <div class="stats-bar" id="stats-bar">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number" data-target="200">0+</div>
+          <div class="stat-label">Academic Programs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="19">0+</div>
+          <div class="stat-label">Specialized Faculties</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="500">0+</div>
+          <div class="stat-label">Global Placement Partners</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="100">0+</div>
+          <div class="stat-label">Acre Eco-Friendly Campus</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="95">0%</div>
+          <div class="stat-label">Placement Record</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE PROGRAM EXPLORER -->
+  <section class="section-padding program-explorer" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Explore Academic Programs</span>
+        <h2 class="main-title">Find the Right Course for Your Career</h2>
+        <p>Browse through our industry-curated Undergraduate, Postgraduate, and Doctoral degree courses.</p>
+      </div>
+
+      <div class="explorer-controls">
+        <div class="filter-tabs" id="program-filter-tabs">
+          <button class="tab-btn active" data-filter="all">All Programs</button>
+          <button class="tab-btn" data-filter="ug">Undergraduate (UG)</button>
+          <button class="tab-btn" data-filter="pg">Postgraduate (PG)</button>
+          <button class="tab-btn" data-filter="phd">Doctoral (Ph.D)</button>
+          <button class="tab-btn" data-filter="diploma">Diploma</button>
+        </div>
+
+        <div class="search-wrapper">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="program-search-input" class="search-input" placeholder="Search by course name (e.g., MBBS, B.Tech, MBA, Law)...">
+        </div>
+      </div>
+
+      <div class="program-grid" id="program-cards-container">
+        <!-- Cards loaded dynamically via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FACULTIES & SCHOOLS -->
+  <section class="section-padding faculties-section" id="faculties">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Centres of Excellence</span>
+        <h2 class="main-title">Our World-Class Faculties</h2>
+        <p>Interdisciplinary education designed with hands-on practical training and expert mentorship.</p>
+      </div>
+
+      <div class="faculties-grid">
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <h3 class="faculty-title">Medicine & Health Sciences</h3>
+          <p class="faculty-desc">MBBS, MD, MS with direct clinical exposure at our 800-bed multi-specialty hospital.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="faculty-title">Engineering & Tech</h3>
+          <p class="faculty-desc">B.Tech in AI/ML, Data Science, Cybersecurity, Robotics & Cloud Computing.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-teeth"></i></div>
+          <h3 class="faculty-title">Dental Sciences</h3>
+          <p class="faculty-desc">BDS & MDS programs equipped with modern dental clinics and 3D imaging labs.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="faculty-title">Commerce & Management</h3>
+          <p class="faculty-desc">BBA, MBA with industry specialization in Business Analytics, Fintech, & HR.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-gavel"></i></div>
+          <h3 class="faculty-title">Faculty of Law</h3>
+          <p class="faculty-desc">Integrated BA LLB (Hons), BBA LLB (Hons), and LLM with dedicated Moot Court rooms.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-pills"></i></div>
+          <h3 class="faculty-title">Pharmacy</h3>
+          <p class="faculty-desc">B.Pharm, Pharm.D, & M.Pharm accredited by Pharmacy Council of India (PCI).</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-user-nurse"></i></div>
+          <h3 class="faculty-title">Nursing</h3>
+          <p class="faculty-desc">B.Sc Nursing & M.Sc Nursing with intensive ICU & operation theater training.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="faculty-card">
+          <div class="faculty-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3 class="faculty-title">Agricultural Sciences</h3>
+          <p class="faculty-desc">B.Sc (Hons) Agriculture with high-tech polyhouses, soil testing, & organic farms.</p>
+          <a href="#programs" class="faculty-link">Explore Courses <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPUS LIFE & MULTI-SPECIALTY HOSPITAL -->
+  <section class="section-padding campus-section" id="campus">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Life at KBN</span>
+        <h2 class="main-title">World-Class Infrastructure & Campus Life</h2>
+        <p>A sprawling 100-acre green campus equipped with advanced medical facilities, research centers, and sports arenas.</p>
+      </div>
+
+      <div class="campus-nav-tabs" id="campus-tabs">
+        <button class="campus-tab-btn active" data-tab="hospital">Super Specialty Hospital</button>
+        <button class="campus-tab-btn" data-tab="labs">AI & Research Labs</button>
+        <button class="campus-tab-btn" data-tab="library">Central Library</button>
+        <button class="campus-tab-btn" data-tab="hostel">Hostels & Dining</button>
+        <button class="campus-tab-btn" data-tab="sports">Sports Complex</button>
+      </div>
+
+      <div class="campus-display-card" id="campus-content-box">
+        <div class="campus-visual-box">
+          <div class="campus-visual-graphic" id="campus-graphic">
+            <i class="fa-solid fa-hospital-user"></i>
+            <h4>800-Bed Super Specialty Teaching Hospital</h4>
+          </div>
+        </div>
+
+        <div class="campus-info-content" id="campus-text-content">
+          <h3>800-Bed Multi-Specialty Hospital</h3>
+          <p>Providing round-the-clock emergency medical services, advanced ICU units, modular operation theaters, and real-time clinical training for medical and nursing students.</p>
+
+          <div class="campus-feature-list">
+            <div class="campus-feature-item"><i class="fa-solid fa-circle-check"></i> 24/7 Emergency & Trauma</div>
+            <div class="campus-feature-item"><i class="fa-solid fa-circle-check"></i> Advanced MRI & CT Scan</div>
+            <div class="campus-feature-item"><i class="fa-solid fa-circle-check"></i> Modular Operation Theaters</div>
+            <div class="campus-feature-item"><i class="fa-solid fa-circle-check"></i> Robotic Surgery Simulation</div>
+          </div>
+
+          <button class="btn btn-gold" id="campus-modal-trigger">
+            <i class="fa-solid fa-play"></i> Watch Virtual Campus Tour
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACEMENTS & RECRUITERS -->
+  <section class="section-padding placements-section" id="placements">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Career Success</span>
+        <h2 class="main-title">Top Recruiters & Placement Records</h2>
+        <p>Our Corporate Resource Centre ensures top industry placements and internship opportunities.</p>
+      </div>
+
+      <div class="placement-stats-row">
+        <div class="placement-stat-card">
+          <h3>₹45.0 LPA</h3>
+          <p>Highest National Package</p>
+        </div>
+        <div class="placement-stat-card">
+          <h3>₹7.5 LPA</h3>
+          <p>Average Salary Package</p>
+        </div>
+        <div class="placement-stat-card">
+          <h3>500+</h3>
+          <p>Participating Companies</p>
+        </div>
+        <div class="placement-stat-card">
+          <h3>95%</h3>
+          <p>Placement Percentage</p>
+        </div>
+      </div>
+
+      <div class="recruiters-marquee-container">
+        <div class="recruiters-marquee">
+          <div class="recruiter-pill"><i class="fa-brands fa-google"></i> Google</div>
+          <div class="recruiter-pill"><i class="fa-brands fa-microsoft"></i> Microsoft</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-hospital-symbol"></i> Fortis Healthcare</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-heart-pulse"></i> Max Hospitals</div>
+          <div class="recruiter-pill"><i class="fa-brands fa-amazon"></i> Amazon</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-building-columns"></i> Deloitte</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-laptop-code"></i> TCS</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-microchip"></i> Intel</div>
+          <div class="recruiter-pill"><i class="fa-solid fa-capsules"></i> Sun Pharma</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHOLARSHIPS -->
+  <section class="section-padding scholarship-section" id="scholarship">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Financial Aid</span>
+        <h2 class="main-title">Merit-Based Scholarships 2026</h2>
+        <p>Rewarding academic excellence and supporting bright minds with tuition fee waivers.</p>
+      </div>
+
+      <div class="scholarship-grid">
+        <div class="scholarship-card">
+          <div class="scholarship-badge">TOP PERFORMERS</div>
+          <div class="scholarship-percentage">100%</div>
+          <h4 class="text-royal">Tuition Fee Waiver</h4>
+          <p class="scholarship-criteria">95% & Above in Class 12th / Top Ranks in JEE / NEET / CUET</p>
+        </div>
+
+        <div class="scholarship-card">
+          <div class="scholarship-badge">MERIT SCHOLARSHIP</div>
+          <div class="scholarship-percentage">50%</div>
+          <h4 class="text-royal">Tuition Fee Waiver</h4>
+          <p class="scholarship-criteria">85% to 94.9% in Qualifying Board Examinations</p>
+        </div>
+
+        <div class="scholarship-card">
+          <div class="scholarship-badge">SPECIAL AID</div>
+          <div class="scholarship-percentage">25%</div>
+          <h4 class="text-royal">Fee Waiver</h4>
+          <p class="scholarship-criteria">75% to 84.9% or Defense Personnel & Sports Excellence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-padding testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Student Voices</span>
+        <h2 class="main-title">What Our Students Say</h2>
+      </div>
+
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p class="testimonial-text">
+          "Studying MBBS at KBN University gave me unmatched clinical experience. Working at the 800-bed teaching hospital helped me gain confidence in patient care early in my career."
+        </p>
+        <div class="student-info">
+          <h4>Dr. Ananya Sharma</h4>
+          <p>MBBS Batch 2024 | Resident Doctor at Apollo Hospitals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Journey at KBN University?</h2>
+        <p>Admissions for the 2026-27 Academic Session are filling fast.</p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn btn-gold" id="cta-apply-btn">
+          <i class="fa-solid fa-paper-plane"></i> Apply Now 2026
+        </button>
+        <button class="btn btn-glass" id="cta-call-btn">
+          <i class="fa-solid fa-phone"></i> Call Admissions
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <div class="logo-container">
+            <div class="logo-icon">K</div>
+            <div class="logo-text">
+              <h2 style="color:#FFF;">KBN UNIVERSITY</h2>
+              <span style="color:#94A3B8;">GURUGRAM / DELHI-NCR</span>
+            </div>
+          </div>
+          <p>
+            KBN University is a state private university recognized by UGC, PCI, INC, BCI, and DCI, offering world-class higher education and research.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About KBN</a></li>
+            <li><a href="#programs">All Programs</a></li>
+            <li><a href="#faculties">Faculties & Schools</a></li>
+            <li><a href="#scholarship">Merit Scholarships</a></li>
+            <li><a href="#placements">Placement Cell</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Faculties</h4>
+          <ul class="footer-links">
+            <li><a href="#programs">Medical & Health Sciences</a></li>
+            <li><a href="#programs">Engineering & Technology</a></li>
+            <li><a href="#programs">Dental Sciences</a></li>
+            <li><a href="#programs">Commerce & Management</a></li>
+            <li><a href="#programs">Law & Legal Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Admissions</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Chandu-Budhera, Gurugram-Badli Road, Gurugram, Haryana 122505</li>
+            <li><i class="fa-solid fa-phone"></i> Helpline: +91 93193 93212</li>
+            <li><i class="fa-solid fa-envelope"></i> admissions@kbnuniversity.edu.in</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KBN University. All Rights Reserved. Designed for Excellence.</p>
+        <p>Privacy Policy | Terms of Service | UGC Recognition</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING STICKY ACTION WIDGETS -->
+  <div class="floating-actions">
+    <a href="https://wa.me/919319393212" target="_blank" class="floating-btn floating-whatsapp" aria-label="WhatsApp Us">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span class="tooltip">Chat on WhatsApp</span>
+    </a>
+    <button class="floating-btn floating-apply" id="floating-apply-btn" aria-label="Apply Now">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span class="tooltip">Apply Now 2026</span>
+    </button>
+  </div>
+
+  <!-- APPLICATION MODAL DIALOG -->
+  <div class="modal-backdrop" id="apply-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Admission Application 2026-27</h3>
+        <button class="close-modal-btn" id="close-apply-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-apply-form">
+          <div class="form-group">
+            <label class="form-label" style="color:#0F172A;">Applicant's Full Name *</label>
+            <input type="text" class="form-control" style="background:#F8FAFC; color:#0F172A; border-color:#CBD5E1;" placeholder="Enter full name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:#0F172A;">Email Address *</label>
+            <input type="email" class="form-control" style="background:#F8FAFC; color:#0F172A; border-color:#CBD5E1;" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:#0F172A;">Mobile Number *</label>
+            <input type="tel" class="form-control" style="background:#F8FAFC; color:#0F172A; border-color:#CBD5E1;" placeholder="+91 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:#0F172A;">Select Preferred Course *</label>
+            <select class="form-control" style="background:#F8FAFC; color:#0F172A; border-color:#CBD5E1;" required>
+              <option value="">-- Choose Course --</option>
+              <option value="mbbs">MBBS (Medicine)</option>
+              <option value="btech">B.Tech Computer Science & AI</option>
+              <option value="mba">MBA (Business Analytics)</option>
+              <option value="bpharm">B.Pharm (Pharmacy)</option>
+              <option value="ballb">BA LLB (Hons)</option>
+              <option value="bds">BDS (Dental)</option>
+              <option value="bsc_nursing">B.Sc Nursing</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%; margin-top:1rem;">
+            Submit Application <i class="fa-solid fa-check-circle"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROSPECTUS MODAL DIALOG -->
+  <div class="modal-backdrop" id="prospectus-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-file-pdf"></i> Download Information Prospectus 2026</h3>
+        <button class="close-modal-btn" id="close-prospectus-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body text-center">
+        <p style="margin-bottom: 1.5rem; color:#475569;">Enter your details to instantly receive the 2026-27 Academic Prospectus & Fee Structure PDF.</p>
+        <form id="prospectus-download-form">
+          <div class="form-group">
+            <input type="email" class="form-control" style="background:#F8FAFC; color:#0F172A; border-color:#CBD5E1;" placeholder="Enter your email" required>
+          </div>
+          <button type="submit" class="btn btn-royal" style="width:100%;">
+            Download Prospectus (PDF) <i class="fa-solid fa-download"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
