@@ -141,13 +141,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const faqPillTabs = document.querySelectorAll('#faq-pill-tabs .tab-btn');
+  const allFaqItems = document.querySelectorAll('.faq-item');
+
   faqPillTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      faqPillTabs.forEach(t => t.classList.remove('active'));
+      const category = tab.getAttribute('data-faq');
+      
+      faqPillTabs.forEach(t => {
+        t.classList.remove('active');
+        t.style.background = '#FFF';
+        t.style.color = '#0F172A';
+      });
+      
       tab.classList.add('active');
       tab.style.background = '#002B49';
       tab.style.color = '#FFF';
-      showToast(`Filtered FAQ category: ${tab.innerText}`, 'info');
+
+      let firstShown = false;
+      allFaqItems.forEach(item => {
+        item.classList.remove('active');
+        const itemCategory = item.getAttribute('data-category');
+        if (itemCategory === category) {
+          item.style.display = 'block';
+          if (!firstShown) {
+            item.classList.add('active');
+            firstShown = true;
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      showToast(`Showing ${tab.innerText} FAQs`, 'info');
     });
   });
 
@@ -261,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 10. SCROLL TO TOP & STICKY TABS
+  // 10. SCROLL TO TOP, STICKY TABS & GLOBAL DELEGATION
   // ==========================================
 
   const scrollTopBtn = document.getElementById('scroll-top-btn');
@@ -271,11 +296,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Benefits Bar Tabs Interactivity
+  const benefitsTabs = document.querySelectorAll('.niat-nav-tab');
+  benefitsTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      benefitsTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      showToast(`Showing ${tab.innerText} Highlights`, 'info');
+    });
+  });
+
+  // Global Open Apply Buttons
+  document.querySelectorAll('.btn-open-apply').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openApplyModal();
+    });
+  });
+
+  document.getElementById('footer-counsellor-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    toggleChat();
+  });
+
   document.getElementById('sticky-reg-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sticky-apply-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sticky-contact-btn')?.addEventListener('click', () => {
     openApplyModal();
-    showToast('Opening SGT Contact & Admission Helpdesk', 'info');
+    showToast('Opening SGT & KBN Contact Helpdesk', 'info');
   });
   document.getElementById('header-apply-now-btn')?.addEventListener('click', () => openApplyModal());
   document.getElementById('sgt-online-btn')?.addEventListener('click', () => openApplyModal());
@@ -283,6 +331,96 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('accessibility-btn')?.addEventListener('click', () => {
     showToast('Accessibility High Contrast Mode Toggled', 'info');
     document.body.classList.toggle('high-contrast');
+  });
+
+  // Stipend counter animation
+  const counterEl = document.querySelector('.stipend-counter');
+  let animatedCounter = false;
+
+  function animateStipendCounter() {
+    if (!counterEl || animatedCounter) return;
+    animatedCounter = true;
+    let start = 0;
+    const end = 2.92;
+    const duration = 1800;
+    const stepTime = 30;
+    const steps = duration / stepTime;
+    const increment = end / steps;
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        start = end;
+        clearInterval(timer);
+      }
+      counterEl.innerText = '₹' + start.toFixed(2) + ' Crore';
+    }, stepTime);
+  }
+
+  // SGT Bento Stats Counter Animation
+  let animatedStats = false;
+  function animateStatsCounters() {
+    if (animatedStats) return;
+    animatedStats = true;
+
+    document.querySelectorAll('.stat-counter').forEach(el => {
+      const target = parseInt(el.getAttribute('data-target') || '0', 10);
+      if (!target) return;
+      let count = 0;
+      const duration = 2000;
+      const stepTime = 30;
+      const steps = duration / stepTime;
+      const increment = Math.ceil(target / steps);
+
+      const timer = setInterval(() => {
+        count += increment;
+        if (count >= target) {
+          count = target;
+          clearInterval(timer);
+        }
+        el.innerText = count.toLocaleString() + '+';
+      }, stepTime);
+    });
+  }
+
+  // Scroll Reveal & Counter Observer
+  const revealElements = document.querySelectorAll('section, .stats-card, .story-card, .student-placement-card, .advisor-card, .achievements-banner-card');
+  revealElements.forEach(el => el.classList.add('reveal'));
+
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        if (entry.target.classList.contains('achievements-section')) {
+          animateStipendCounter();
+        }
+        if (entry.target.classList.contains('sgt-stats-section')) {
+          animateStatsCounters();
+        }
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => observer.observe(el));
+
+
+  document.getElementById('student-chat-badge')?.addEventListener('click', () => {
+    toggleChat();
+    showToast('Connecting with Student Ambassador Yalda Waghazi...', 'info');
+  });
+
+  document.getElementById('advisor-link-1')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openApplyModal();
+    showToast('Opening Dr. SS Mantha Advisor Profile & Advisory Sessions', 'info');
+  });
+
+
+  document.getElementById('advisor-link-2')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openApplyModal();
+    showToast('Opening Dr. Sandeep Sancheti Advisor Profile & Advisory Sessions', 'info');
   });
 
   // ==========================================
@@ -314,8 +452,10 @@ document.addEventListener('DOMContentLoaded', () => {
     modalApplyForm.addEventListener('submit', (e) => {
       e.preventDefault();
       closeModals();
-      showToast('SGT Application Submitted Successfully! Ref ID: SGT-2026-' + Math.floor(1000 + Math.random() * 9000));
+      showToast('Application Submitted Successfully! Ref ID: KBN-2026-' + Math.floor(1000 + Math.random() * 9000));
       modalApplyForm.reset();
     });
   }
 });
+
+

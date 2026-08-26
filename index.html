@@ -15,127 +15,139 @@
   <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <!-- 1. SGT OFFICIAL HEADER NAVBAR -->
-  <header class="sgt-header" id="header">
-    <div class="container">
-      <div class="sgt-brand">
-        <a href="#header" class="sgt-logo-box">
-          <div class="sgt-crest">SGT</div>
-          <div class="sgt-logo-text">
-            <h1>SGT UNIVERSITY</h1>
-            <span>SHREE GURU GOBIND SINGH TRICENTENARY UNIVERSITY</span>
-          </div>
-        </a>
-        <span class="naac-badge">NAAC A+</span>
-      </div>
+  <!-- 1. OFFICIAL NIAT INDIA STICKY HEADER NAVBAR -->
+  <header class="niat-sticky-header" id="header" style="background:#FFFFFF; border-bottom:1px solid #E5E7EB; position:sticky; top:0; z-index:2500; box-shadow:0 2px 10px rgba(0,0,0,0.05); font-family:inherit;">
+    <div class="container" style="max-width:1280px; margin:0 auto; padding:0.75rem 1.5rem; display:flex; align-items:center; justify-content:space-between;">
+      
+      <!-- Brand Logo -->
+      <a href="#header" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none;">
+        <div style="width:42px; height:42px; background:#991B1B; border-radius:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#FFF; font-weight:800; font-size:0.75rem; line-height:1.1; text-align:center;">
+          <span>NI</span><span>AT</span>
+        </div>
+        <div>
+          <h2 style="color:#991B1B; font-size:0.95rem; font-weight:700; margin:0; line-height:1.2;">NxtWave of Innovation in<br>Advanced Technologies</h2>
+          <span style="color:#64748B; font-size:0.65rem; font-weight:600; text-transform:uppercase;">KBN University Collab</span>
+        </div>
+      </a>
 
-      <div class="header-right-actions">
-        <select class="header-select-course" id="header-course-select">
-          <option value="">Select Course ▾</option>
-          <option value="MBBS (Medicine)">MBBS</option>
-          <option value="B.Tech Computer Science (AI & ML)">B.Tech AI & CSE</option>
-          <option value="BDS (Dental Surgery)">BDS</option>
-          <option value="BAMS (Ayurvedic Medicine)">BAMS</option>
-          <option value="MBA (Business Analytics)">MBA</option>
-          <option value="BA LLB (Hons)">BA LLB</option>
-        </select>
-        <a href="#placements-hover" class="header-tag-btn">MBBS / BAMS / BDS</a>
-        <button class="btn-sgt-online" id="sgt-online-btn">SGT ONLINE</button>
-        <button class="btn-sgt-apply" id="header-apply-now-btn">APPLY NOW</button>
-      </div>
+      <!-- Right Nav Items -->
+      <nav style="display:flex; align-items:center; gap:1.75rem; font-size:0.9rem; font-weight:600;">
+        <a href="#achievements" style="color:#1E293B; text-decoration:none; display:flex; align-items:center; gap:0.3rem; transition:color 0.2s;">Student Achievements <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; color:#64748B;"></i></a>
+        <a href="#niat-benefits" style="color:#1E293B; text-decoration:none; transition:color 0.2s;">University Collabs</a>
+        <a href="#placements-hover" style="color:#1E293B; text-decoration:none; transition:color 0.2s;">Placements</a>
+        <a href="#advisors" style="color:#1E293B; text-decoration:none; transition:color 0.2s;">Our Advisors</a>
+        <a href="#apply-modal" class="btn-open-apply" style="color:#1E293B; text-decoration:none; transition:color 0.2s;">NAT Application</a>
+        <a href="#faq" style="color:#1E293B; text-decoration:none; display:flex; align-items:center; gap:0.3rem;">More <i class="fa-solid fa-chevron-down" style="font-size:0.7rem; color:#64748B;"></i></a>
+        <button class="btn-open-apply" style="background:#991B1B; color:#FFFFFF; border:none; padding:0.55rem 1.4rem; border-radius:20px; font-weight:700; font-size:0.88rem; cursor:pointer; display:flex; align-items:center; gap:0.5rem; box-shadow:0 4px 12px rgba(153,27,27,0.3); transition:transform 0.2s;">
+          <span style="width:8px; height:8px; border-radius:50%; background:#FFF; display:inline-block;"></span> Apply Now
+        </button>
+      </nav>
     </div>
   </header>
 
-  <!-- 2. HERO BANNER SECTION (SGT / GITAM / NIAT HYBRID) -->
-  <section class="hero-section" id="hero" style="background: linear-gradient(135deg, #002B49 0%, #061A35 100%); padding: 4rem 0; color: #FFFFFF;">
-    <div class="container">
+  <!-- 2. HERO BANNER SECTION (SGT OFFICIAL AERIAL CAMPUS BANNER & ANNOUNCEMENTS) -->
+  <section class="hero-section" id="hero" style="position: relative; background: linear-gradient(180deg, rgba(0,43,73,0.7) 0%, rgba(6,26,53,0.85) 100%), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; padding: 5rem 0 7rem 0; color: #FFFFFF;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
       <div class="hero-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
         <div class="hero-text">
-          <span style="background: rgba(255,102,0,0.2); color: #FF6600; padding: 0.35rem 0.85rem; border-radius: 20px; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px;">ADMISSIONS OPEN 2026-27</span>
-          <h1 style="font-size: 3rem; color: #FFFFFF; line-height: 1.15; margin: 1rem 0;">Empowering Future Leaders Through Innovation & Industry Excellence</h1>
-          <p style="color: #94A3B8; font-size: 1.1rem; margin-bottom: 2rem;">Join 15,000+ SGTians across Medicine, AI Engineering, Management & Law in a 100-acre NAAC A+ accredited campus near Delhi-NCR.</p>
+          <span style="background: #FF6600; color: #FFFFFF; padding: 0.4rem 1rem; border-radius: 20px; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(255,102,0,0.4);">ADMISSIONS OPEN 2026-27</span>
+          <h1 style="font-size: 3.2rem; color: #FFFFFF; line-height: 1.15; margin: 0 0 1rem 0; font-weight: 900; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Empowering Future Leaders Through Innovation & Industry Excellence</h1>
+          <p style="color: #E2E8F0; font-size: 1.15rem; margin-bottom: 2.25rem; line-height: 1.6; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Join 15,000+ SGTians across Medicine, AI Engineering, Management & Law in a 100-acre NAAC A+ accredited campus near Delhi-NCR.</p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button class="btn-sgt-apply" style="padding: 0.85rem 1.8rem; font-size: 1rem;" id="hero-apply-btn">Apply For Admission 2026</button>
-            <button class="btn-sgt-online" style="padding: 0.85rem 1.8rem; font-size: 1rem;" id="hero-explore-btn">Explore 200+ Courses</button>
+            <button class="btn-open-apply" style="background: #FF6600; color: #FFF; border: none; padding: 0.9rem 2rem; border-radius: 12px; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 20px rgba(255,102,0,0.4); transition: transform 0.2s;" id="hero-apply-btn">Apply For Admission 2026</button>
+            <button class="btn-open-apply" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); color: #FFF; border: 1px solid rgba(255,255,255,0.4); padding: 0.9rem 2rem; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s;" id="hero-explore-btn">Explore 200+ Courses</button>
           </div>
         </div>
-        <div class="hero-form-box" style="background: #FFFFFF; border-radius: 20px; padding: 2rem; color: #0F172A; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-          <h3 style="color: #002B49; margin-bottom: 1rem; font-size: 1.4rem;">Quick Admission Enquiry</h3>
+
+        <div class="hero-form-box" style="background: #FFFFFF; border-radius: 24px; padding: 2.25rem; color: #0F172A; box-shadow: 0 25px 50px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.8);">
+          <h3 style="color: #002B49; margin-bottom: 0.5rem; font-size: 1.45rem; font-weight: 800;">Quick Admission Enquiry</h3>
+          <p style="color: #64748B; font-size: 0.85rem; margin-bottom: 1.25rem;">Get official brochure and guidance from counselors.</p>
           <form id="hero-enquiry-form">
             <div class="form-group" style="margin-bottom: 1rem;">
-              <input type="text" class="form-control" placeholder="Enter Full Name" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid #CBD5E1;" required>
+              <input type="text" class="form-control" placeholder="Enter Full Name *" style="width:100%; padding:0.8rem 1rem; border-radius:10px; border:1px solid #CBD5E1; outline:none; font-size:0.92rem;" required>
             </div>
             <div class="form-group" style="margin-bottom: 1rem;">
-              <input type="email" class="form-control" placeholder="Enter Email Address" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid #CBD5E1;" required>
+              <input type="email" class="form-control" placeholder="Enter Email Address *" style="width:100%; padding:0.8rem 1rem; border-radius:10px; border:1px solid #CBD5E1; outline:none; font-size:0.92rem;" required>
             </div>
-            <div class="form-group" style="margin-bottom: 1rem;">
-              <input type="tel" class="form-control" placeholder="Enter Mobile Number" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid #CBD5E1;" required>
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <input type="tel" class="form-control" placeholder="Enter Mobile Number *" style="width:100%; padding:0.8rem 1rem; border-radius:10px; border:1px solid #CBD5E1; outline:none; font-size:0.92rem;" required>
             </div>
-            <button type="submit" class="btn-sgt-apply" style="width:100%; padding:0.85rem; font-size:1rem;">Submit & Download Brochure</button>
+            <button type="submit" style="width:100%; padding:0.9rem; font-size:1rem; background:#002B49; color:#FFF; border:none; border-radius:10px; font-weight:700; cursor:pointer; box-shadow:0 6px 18px rgba(0,43,73,0.3);">Submit & Download Brochure</button>
           </form>
         </div>
       </div>
     </div>
+
+    <!-- Bottom Admission Announcement Pill Tabs (Matching SGT Screenshot) -->
+    <div style="position: absolute; bottom: 1.5rem; left: 0; width: 100%; z-index: 10;">
+      <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn-open-apply" style="background: #3B82F6; color: #FFFFFF; border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">MD/MS/MDS</button>
+        <button class="btn-open-apply" style="background: #3B82F6; color: #FFFFFF; border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">MBA</button>
+        <button class="btn-open-apply" style="background: #3B82F6; color: #FFFFFF; border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">Nursing Admission 2026-27</button>
+        <button class="btn-open-apply" style="background: #3B82F6; color: #FFFFFF; border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 12px rgba(59,130,246,0.3);">ITEP Counselling 2026-27</button>
+      </div>
+    </div>
   </section>
 
-  <!-- 3. SGT 6-CARD PHOTO STATS SECTION -->
+  <!-- 3. SGT PHOTO STATS BENTO GRID (MATCHING SGT SCREENSHOT) -->
   <section class="sgt-stats-section" id="stats">
-    <div class="container">
-      <div class="section-header">
-        <span class="sub-title">SGT University At A Glance</span>
-        <h2 class="main-title">World-Class Infrastructure & Academic Milestones</h2>
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div class="section-header" style="text-align: center;">
+        <span class="sub-title" style="color: #FF6600; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">SGT University At A Glance</span>
+        <h2 class="main-title" style="font-size: 2.3rem; font-weight: 800; color: #0F172A; margin-top: 0.5rem;">World-Class Infrastructure & Academic Milestones</h2>
       </div>
+
       <div class="sgt-stats-grid">
-        <!-- Card 1 -->
-        <div class="stats-card stats-card-tall card-graphic-1" data-stat="200+ Degree Programs across 19 Faculties">
+        <!-- Card 1 (Tall Left - Dentist/Lab Photo) -->
+        <div class="stats-card stats-card-tall" data-stat="200+ Degree Programs across 19 Faculties">
           <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" alt="200+ Programs Offered" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>200+</h3>
+            <h3 class="stat-counter" data-target="200">0+</h3>
             <p>Programs Offered</p>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="stats-card card-graphic-2" data-stat="19 Specialized Faculties & Centres of Excellence">
+        <!-- Card 2 (Top Middle Left - Graduation Photo) -->
+        <div class="stats-card" data-stat="19 Specialized Faculties & Centres of Excellence">
           <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="19 Faculties" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>19</h3>
+            <h3 class="stat-counter" data-target="19">0</h3>
             <p>Faculties | Schools</p>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="stats-card stats-card-wide card-graphic-3" data-stat="8000+ Digital e-Lectures & Video Capsules">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="8000+ e-Lectures" class="stats-card-bg">
+        <!-- Card 3 (Top Middle Center - e-Lectures Faculty Grid Photo) -->
+        <div class="stats-card stats-card-wide" data-stat="7937+ Digital e-Lectures & Video Capsules">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="7937+ e-Lectures" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>8000+</h3>
+            <h3 class="stat-counter" data-target="7937">0+</h3>
             <p>e-Lectures</p>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="stats-card card-graphic-1" data-stat="10000+ High Impact Scopus & PubMed Research Papers">
-          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="10000+ Research" class="stats-card-bg">
+        <!-- Card 4 (Top Right - Medical / Research Photo) -->
+        <div class="stats-card" data-stat="9922+ High Impact Scopus & PubMed Research Papers">
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="9922+ Research" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>10000+</h3>
+            <h3 class="stat-counter" data-target="9922">0+</h3>
             <p>Research & Publications</p>
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="stats-card stats-card-wide card-graphic-2" data-stat="95,250+ Volumes across 6 Digital Air-Conditioned Libraries">
-          <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" alt="95250+ Books in 6 Libraries" class="stats-card-bg">
+        <!-- Card 5 (Bottom Middle - Student in Library Photo) -->
+        <div class="stats-card stats-card-wide" data-stat="94,483+ Volumes across 6 Digital Air-Conditioned Libraries">
+          <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" alt="94483+ Books in 6 Libraries" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>95250+</h3>
+            <h3 class="stat-counter" data-target="94483">0+</h3>
             <p>Books in 6 Libraries</p>
           </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="stats-card stats-card-wide card-graphic-3" data-stat="15,000+ Global SGT Alumni Doctors & Engineers">
-          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" alt="15000+ Alumni Network" class="stats-card-bg">
+        <!-- Card 6 (Bottom Right - Alumni Photo) -->
+        <div class="stats-card stats-card-wide" data-stat="14,879+ Global SGT Alumni Doctors & Engineers">
+          <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" alt="14879+ Alumni Network" class="stats-card-bg">
           <div class="stats-card-overlay">
-            <h3>15000+</h3>
+            <h3 class="stat-counter" data-target="14879">0+</h3>
             <p>Alumni Network</p>
           </div>
         </div>
@@ -246,21 +258,121 @@
     </div>
   </section>
 
-  <!-- 6. NIAT INDIA: EXCLUSIVE BENEFITS NAVIGATION SECTION -->
-  <section class="niat-benefits-section" id="niat-benefits">
-    <div class="container">
-      <div class="niat-benefits-header">
-        <h2>Exclusive <span>Benefits</span> for SGTians</h2>
+  <!-- STUDENT ACHIEVEMENTS SECTION (NIAT INDIA BANNER) -->
+  <section class="achievements-section" id="achievements" style="padding: 4.5rem 0; background: #FFFFFF; font-family: inherit;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #1E293B; margin: 0;">Student <span style="color: #991B1B;">Achievements</span></h2>
       </div>
 
-      <div class="niat-nav-bar">
-        <button class="niat-nav-tab active">Highlights</button>
+      <div class="achievements-banner-card" style="background: #FEF3C7; border-radius: 24px; padding: 3.5rem 3rem; display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 2rem; position: relative; overflow: hidden; box-shadow: 0 12px 32px rgba(254, 243, 199, 0.6); border: 1px solid #FDE68A;">
+        
+        <!-- Background Grid Pattern Accent -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(#F59E0B 0.75px, transparent 0.75px); background-size: 24px 24px; opacity: 0.15; pointer-events: none;"></div>
+
+        <!-- Left Content Column -->
+        <div style="position: relative; z-index: 2;">
+          <h1 style="font-size: 2.8rem; font-weight: 800; color: #1E293B; line-height: 1.2; margin: 0 0 0.5rem 0;">
+            <span class="stipend-counter" style="color: #991B1B; font-weight: 900;">₹2.92 Crore</span> as Internship Stipends
+          </h1>
+          <h3 style="font-size: 1.6rem; font-weight: 700; color: #1E293B; margin: 0 0 2rem 0;">Secured by NIATians</h3>
+
+          <!-- Company Logos Row -->
+          <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0.85;">
+            <span style="font-weight: 800; font-size: 0.85rem; color: #D97706; letter-spacing: 0.5px;">codegres</span>
+            <span style="font-weight: 800; font-size: 0.85rem; color: #2563EB; letter-spacing: 0.5px;">FORADE</span>
+            <span style="font-weight: 800; font-size: 0.95rem; color: #DC2626; letter-spacing: 0.5px; display: flex; align-items: center; gap: 2px;"><i class="fa-solid fa-g"></i>.</span>
+            <span style="font-weight: 800; font-size: 0.85rem; color: #059669; letter-spacing: 0.5px;">ingdrones</span>
+            <span style="font-weight: 800; font-size: 0.85rem; color: #047857; letter-spacing: 0.5px;">Leher</span>
+            <span style="font-weight: 800; font-size: 0.85rem; color: #4338CA; letter-spacing: 0.5px;">Pavaman</span>
+          </div>
+
+          <button class="btn-open-apply" style="background: #800020; color: #FFFFFF; border: none; padding: 0.75rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 14px rgba(128, 0, 32, 0.3);">
+            Know more
+          </button>
+        </div>
+
+        <!-- Right Content Column: Floating Students & Sparkles -->
+        <div style="position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: center; z-index: 2;">
+          <div class="floating-students-wrapper" style="animation: softFloat 4s ease-in-out infinite;">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=80" alt="NIAT Students" style="width: 100%; max-width: 440px; border-radius: 20px; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15)); border: 4px solid #FFFFFF;">
+          </div>
+          <!-- Sparkle icon accents -->
+          <div style="position: absolute; top: 10%; right: 5%; color: #F59E0B; font-size: 1.8rem; animation: pulseSparkle 2s ease-in-out infinite;">✨</div>
+          <div style="position: absolute; bottom: 20%; left: 0%; color: #F59E0B; font-size: 1.4rem; animation: pulseSparkle 2.5s ease-in-out infinite 0.5s;">✨</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR ADVISORS SECTION (NIAT INDIA ADVISORS) -->
+  <section class="advisors-section" id="advisors" style="padding: 4.5rem 0; background: #FFFDF9; font-family: inherit;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; color: #1E293B; margin: 0;">Our <span style="color: #991B1B;">Advisors</span></h2>
+      </div>
+
+      <!-- Advisor Cards Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3.5rem;">
+        
+        <!-- Advisor 1 -->
+        <div class="advisor-card" style="background: #FFFDF7; border: 1px solid #FEF3C7; border-radius: 24px; padding: 2rem; display: flex; align-items: center; gap: 1.75rem; box-shadow: 0 8px 24px rgba(254, 243, 199, 0.4); transition: transform 0.3s ease;">
+          <div style="width: 150px; height: 160px; border-radius: 18px; overflow: hidden; background: #FEF3C7; flex-shrink: 0; border: 2px solid #FDE68A;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Dr. SS Mantha" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <h3 style="color: #991B1B; font-size: 1.3rem; font-weight: 700; line-height: 1.3; margin: 0 0 0.75rem 0;">Architect of modern technical education</h3>
+            <h4 style="color: #1E293B; font-size: 1.05rem; font-weight: 800; margin: 0 0 0.25rem 0;">Dr. SS Mantha</h4>
+            <p style="color: #64748B; font-size: 0.88rem; margin: 0 0 1rem 0;">Former AICTE Chairman</p>
+            <a href="#chat-window" id="advisor-link-1" style="color: #991B1B; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Know more ▾</a>
+          </div>
+        </div>
+
+        <!-- Advisor 2 -->
+        <div class="advisor-card" style="background: #FFFDF7; border: 1px solid #FEF3C7; border-radius: 24px; padding: 2rem; display: flex; align-items: center; gap: 1.75rem; box-shadow: 0 8px 24px rgba(254, 243, 199, 0.4); transition: transform 0.3s ease;">
+          <div style="width: 150px; height: 160px; border-radius: 18px; overflow: hidden; background: #FEF3C7; flex-shrink: 0; border: 2px solid #FDE68A;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Dr. Sandeep Sancheti" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <h3 style="color: #991B1B; font-size: 1.3rem; font-weight: 700; line-height: 1.3; margin: 0 0 0.75rem 0;">A veteran of four decades in higher education</h3>
+            <h4 style="color: #1E293B; font-size: 1.05rem; font-weight: 800; margin: 0 0 0.25rem 0;">Dr. Sandeep Sancheti</h4>
+            <p style="color: #64748B; font-size: 0.85rem; margin: 0 0 1rem 0; line-height: 1.3;">Former Director, NITK Surathkal, NIT Delhi & NIT Goa</p>
+            <a href="#chat-window" id="advisor-link-2" style="color: #991B1B; font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Know more ▾</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quote Block -->
+      <div style="text-align: center; max-width: 900px; margin: 0 auto; position: relative;">
+        <div style="font-size: 4rem; color: #FCA5A5; opacity: 0.4; line-height: 0; position: absolute; top: -15px; left: 0;">“</div>
+        <p style="font-size: 1.25rem; font-weight: 700; color: #991B1B; line-height: 1.6; margin: 0 0 0.75rem 0; padding: 0 2rem;">
+          NIAT is playing a crucial role in shaping industry-ready graduates through skill-based education. I’m proud to be associated with their journey.
+        </p>
+        <span style="color: #1E293B; font-weight: 700; font-size: 0.95rem;">-Dr. Sandeep Sancheti</span>
+        <div style="font-size: 4rem; color: #FCA5A5; opacity: 0.4; line-height: 0; position: absolute; bottom: -15px; right: 0;">”</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. NIAT INDIA: EXCLUSIVE BENEFITS NAVIGATION SECTION -->
+  <section class="niat-benefits-section" id="niat-benefits" style="padding: 3rem 0; background: #FFFFFF;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div class="niat-benefits-header" style="text-align: center; margin-bottom: 2rem;">
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: #1E293B; margin: 0;">Exclusive <span>Benefits</span> for Students</h2>
+      </div>
+
+      <!-- Cream Category Pill Navbar -->
+      <div class="niat-nav-bar" style="background: #FFFDF7; border: 1px solid #FEF3C7; border-radius: 40px; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; box-shadow: 0 6px 20px rgba(254, 243, 199, 0.4);">
+        <button class="niat-nav-tab">Highlights</button>
         <button class="niat-nav-tab">Collaborations</button>
-        <button class="niat-nav-tab">Outcomes</button>
-        <button class="niat-nav-tab">Life of Students</button>
+        <button class="niat-nav-tab active" style="background: #991B1B; color: #FFFFFF; border-color: #991B1B;">Outcomes</button>
+        <button class="niat-nav-tab">Life of NIATians</button>
         <button class="niat-nav-tab">Mentors</button>
         <button class="niat-nav-tab">Curriculum</button>
-        <button class="niat-nav-tab">Why SGT</button>
+        <button class="niat-nav-tab">Why NIAT</button>
         <button class="niat-nav-tab">Contact</button>
         <button class="niat-nav-tab">FAQs</button>
       </div>
@@ -352,87 +464,158 @@
   </section>
 
   <!-- 9. GITAM UNIVERSITY: UPCOMING EVENTS SECTION -->
-  <section class="events-section" id="events">
-    <div class="container">
-      <div class="events-header">
-        <h2 style="color:var(--gitam-green); font-size:2.3rem; margin-bottom:2.5rem;">Upcoming Events</h2>
+  <section class="events-section" id="events" style="padding: 5rem 0; background: #FFFFFF; font-family: inherit;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="margin-bottom: 2.5rem;">
+        <h2 style="color: #006838; font-size: 2.5rem; font-weight: 800; margin: 0;">Upcoming Events</h2>
       </div>
 
-      <div class="events-grid">
-        <div class="event-card">
+      <div class="events-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        
+        <!-- Cutout Event Card 1 -->
+        <div class="gitam-event-card" style="background: #E8F5E9; border-radius: 32px 8px 32px 32px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
           <div>
-            <div class="event-top-meta">
-              <span class="event-date-pill">26th Mar</span>
-              <span class="event-location-pill"><i class="fa-solid fa-location-dot"></i> ROOM NO - 204</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <span style="font-weight: 800; color: #006838; font-size: 1.1rem;">26th Mar</span>
+              <span style="background: #C8E6C9; color: #006838; padding: 0.35rem 0.85rem; border-radius: 16px; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-building-columns"></i> ROOM NO - 204
+              </span>
             </div>
-            <h3 class="event-title">QR-Based Access to Printing Tech</h3>
-            <p class="event-desc">The purpose is to enable paid access and high-speed cloud printing across campus labs.</p>
+            <h3 style="color: #006838; font-size: 1.3rem; font-weight: 800; line-height: 1.35; margin: 0 0 0.85rem 0;">QR-Based Access to Printing Tech</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 1.5rem 0;">The purpose is to enable paid access and high-speed cloud printing across campus labs.</p>
           </div>
-          <div class="event-footer">
-            <button class="btn-event-details">View Details</button>
-            <a href="#events" class="event-register-link">Register Here ↗</a>
+          <div>
+            <div style="color: #006838; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-location-dot"></i> Visakhapatnam & KBN Campus
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <button class="btn-event-details btn-open-apply" style="background: #006838; color: #FFFFFF; border: none; padding: 0.65rem 1.4rem; border-radius: 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: background 0.2s;">
+                View Details
+              </button>
+              <a href="#events" class="btn-open-apply" style="color: #006838; font-weight: 800; font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: transform 0.2s;">
+                Register Here <span style="font-size: 1.1rem; transition: transform 0.2s;">↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="event-card">
+        <!-- Cutout Event Card 2 -->
+        <div class="gitam-event-card" style="background: #E8F5E9; border-radius: 32px 8px 32px 32px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
           <div>
-            <div class="event-top-meta">
-              <span class="event-date-pill">11th Jul</span>
-              <span class="event-location-pill"><i class="fa-solid fa-location-dot"></i> SGT Auditorium</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <span style="font-weight: 800; color: #006838; font-size: 1.1rem;">11th Jul</span>
+              <span style="background: #C8E6C9; color: #006838; padding: 0.35rem 0.85rem; border-radius: 16px; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-school"></i> Swechha waldorf school
+              </span>
             </div>
-            <h3 class="event-title">SWECHHA AFTER-SCHOOL KUCHIPUDI</h3>
-            <p class="event-desc">Classical dance masterclass and performance showcase organized by Faculty of Performing Arts.</p>
+            <h3 style="color: #006838; font-size: 1.3rem; font-weight: 800; line-height: 1.35; margin: 0 0 0.85rem 0;">SWECHHA AFTER-SCHOOL KUCHIPUDI</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Classical dance masterclass and performance showcase organized by Faculty of Performing Arts.</p>
           </div>
-          <div class="event-footer">
-            <button class="btn-event-details">View Details</button>
-            <a href="#events" class="event-register-link">Register Here ↗</a>
+          <div>
+            <div style="color: #006838; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-location-dot"></i> Visakhapatnam & KBN Campus
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <button class="btn-event-details btn-open-apply" style="background: #006838; color: #FFFFFF; border: none; padding: 0.65rem 1.4rem; border-radius: 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: background 0.2s;">
+                View Details
+              </button>
+              <a href="#events" class="btn-open-apply" style="color: #006838; font-weight: 800; font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: transform 0.2s;">
+                Register Here <span style="font-size: 1.1rem; transition: transform 0.2s;">↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="event-card">
+        <!-- Cutout Event Card 3 -->
+        <div class="gitam-event-card" style="background: #E8F5E9; border-radius: 32px 8px 32px 32px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease;">
           <div>
-            <div class="event-top-meta">
-              <span class="event-date-pill">11th Jul</span>
-              <span class="event-location-pill"><i class="fa-solid fa-location-dot"></i> Main Amphitheatre</span>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
+              <span style="font-weight: 800; color: #006838; font-size: 1.1rem;">11th Jul</span>
+              <span style="background: #C8E6C9; color: #006838; padding: 0.35rem 0.85rem; border-radius: 16px; font-weight: 700; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <i class="fa-solid fa-music"></i> Swechha waldorf school
+              </span>
             </div>
-            <h3 class="event-title">SWECHHA AFTER-SCHOOL CARNATIC</h3>
-            <p class="event-desc">Carnatic music workshop and vocal training session with renowned national artists.</p>
+            <h3 style="color: #006838; font-size: 1.3rem; font-weight: 800; line-height: 1.35; margin: 0 0 0.85rem 0;">SWECHHA AFTER-SCHOOL CARNATIC</h3>
+            <p style="color: #475569; font-size: 0.92rem; line-height: 1.6; margin: 0 0 1.5rem 0;">Carnatic music workshop and vocal training session with renowned national artists.</p>
           </div>
-          <div class="event-footer">
-            <button class="btn-event-details">View Details</button>
-            <a href="#events" class="event-register-link">Register Here ↗</a>
+          <div>
+            <div style="color: #006838; font-weight: 600; font-size: 0.85rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.4rem;">
+              <i class="fa-solid fa-location-dot"></i> Visakhapatnam & KBN Campus
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <button class="btn-event-details btn-open-apply" style="background: #006838; color: #FFFFFF; border: none; padding: 0.65rem 1.4rem; border-radius: 12px; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: background 0.2s;">
+                View Details
+              </button>
+              <a href="#events" class="btn-open-apply" style="color: #006838; font-weight: 800; font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: transform 0.2s;">
+                Register Here <span style="font-size: 1.1rem; transition: transform 0.2s;">↗</span>
+              </a>
+            </div>
           </div>
         </div>
+
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <a href="#events" style="color: #006838; font-size: 1.2rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.2s;">
+          View More <span style="font-size: 1.3rem;">↗</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- 10. GITAM UNIVERSITY: WHAT OUR STUDENTS SAY SECTION -->
-  <section class="student-reviews-section" id="reviews">
-    <div class="container">
-      <div class="section-header">
-        <span class="sub-title">Testimonials</span>
-        <h2 class="main-title">What Our Students Say...</h2>
+  <section class="student-reviews-section" id="reviews" style="padding: 5rem 0; background: #FFFDF9; font-family: inherit;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="margin-bottom: 2.5rem;">
+        <h2 style="color: #006838; font-size: 2.5rem; font-weight: 800; margin: 0;">What our Students say...</h2>
       </div>
 
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p>"SGT University is a place where I have learned and experienced so many new things in such a short period of time. My classes are great and I enjoy every one of them, especially clinical rotations at the SGT Hospital!"</p>
-          <div class="review-author" style="font-weight:700; color:var(--gitam-green); margin-top:1rem;">Yalda Waghazi, MA (English), International Student</div>
+      <div class="gitam-reviews-slider" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+        
+        <!-- Review Card 1 -->
+        <div class="gitam-review-card" style="background: #E8F5E9; border-radius: 24px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.05); transition: transform 0.3s ease;">
+          <p style="color: #334155; font-size: 1.05rem; line-height: 1.75; margin: 0 0 2rem 0; font-weight: 500;">
+            "To me KBN & NIAT is a hub of love and a torch of guidance and knowledge. From its teachers to students and to climate of the place, everything is fascinating."
+          </p>
+          <div style="text-align: right; color: #006838; font-weight: 800; font-size: 0.95rem;">
+            Muhammad Basirat, BCA, Afghanistan
+          </div>
         </div>
 
-        <div class="review-card">
-          <p>"It was a great experience studying at SGT University, a memory to cherish for a lifetime. The entire faculty and department leaves no stone unturned to shape one's future in research and technology."</p>
-          <div class="review-author" style="font-weight:700; color:var(--gitam-green); margin-top:1rem;">Sneha Sappa, B.Tech CSE (AI & ML)</div>
+        <!-- Review Card 2 -->
+        <div class="gitam-review-card" style="background: #E8F5E9; border-radius: 24px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.05); transition: transform 0.3s ease;">
+          <p style="color: #334155; font-size: 1.05rem; line-height: 1.75; margin: 0 0 2rem 0; font-weight: 500;">
+            "GITAM & KBN is a place where I have learned and experienced so many new things in such a short period of time. My classes are great and I enjoy every one of them, especially poetry, because it made me a poet. I also joined Spanish class."
+          </p>
+          <div style="text-align: right; color: #006838; font-weight: 800; font-size: 0.95rem;">
+            YaldaWaghazi, MA(English), Afghanistan
+          </div>
         </div>
 
-        <div class="review-card">
-          <p>"SGT is one of those universities where opportunities are plentiful. During my 2 years at the University, I had multiple opportunities to interact with industrial stalwarts and host multiple national events."</p>
-          <div class="review-author" style="font-weight:700; color:var(--gitam-green); margin-top:1rem;">Neeharika Duvvuri, MBA Batch 2025</div>
+        <!-- Review Card 3 -->
+        <div class="gitam-review-card" style="background: #E8F5E9; border-radius: 24px; padding: 2.25rem 2rem; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #C8E6C9; box-shadow: 0 8px 24px rgba(0, 104, 56, 0.05); transition: transform 0.3s ease;">
+          <p style="color: #334155; font-size: 1.05rem; line-height: 1.75; margin: 0 0 2rem 0; font-weight: 500;">
+            "It was a great experience studying here, a memory to cherish for a lifetime. The entire faculty and department leaves no stone unturned to shape one's future in research and technology."
+          </p>
+          <div style="text-align: right; color: #006838; font-weight: 800; font-size: 0.95rem;">
+            Sneha Sappa, B.Tech CSE (AI & ML)
+          </div>
         </div>
+
       </div>
     </div>
   </section>
+
+  <!-- FLOATING STUDENT AVATAR BADGE ("Chat with Student") -->
+  <div class="floating-student-chat-badge" id="student-chat-badge" style="position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2400; background: #FFFFFF; padding: 0.4rem 0.6rem 0.4rem 0.4rem; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); display: flex; align-items: center; gap: 0.65rem; border: 1px solid #E2E8F0; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    <div style="position: relative; width: 42px; height: 42px;">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Student Ambassador" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid #E8F5E9;">
+      <span style="position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #22C55E; border: 2px solid #FFFFFF; border-radius: 50%;"></span>
+    </div>
+    <span style="background: #F8FAFC; color: #0F172A; font-weight: 800; font-size: 0.88rem; padding: 0.45rem 0.9rem; border-radius: 20px; border: 1px solid #CBD5E1;">
+      Chat with Student
+    </span>
+  </div>
 
   <!-- 11. NIAT INDIA: HOW LEARNERS BUILT SKILLS CAROUSEL SECTION -->
   <section class="stories-carousel-section" id="stories-carousel">
@@ -571,56 +754,148 @@
       </div>
 
       <div class="faq-accordion" id="faq-accordion-box">
-        <div class="faq-item active">
-          <div class="faq-question">What is SGT University & NIAT India? <i class="fa-solid fa-plus"></i></div>
-          <div class="faq-answer">SGT University is a NAAC A+ accredited state private university in Gurugram offering 200+ degree programs across Medicine, Engineering, Law, Pharmacy & Nursing in collaboration with NIAT India upskilling cohorts.</div>
+        <!-- General Category -->
+        <div class="faq-item active" data-category="general">
+          <div class="faq-question">What is KBN University & NIAT India? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Khaja Bandanawaz (KBN) University is a Category-1 UGC recognised university offering 200+ degree programs across Medicine, AI Engineering, Law, Pharmacy & Nursing in collaboration with NIAT India industry cohorts.</div>
+        </div>
+        <div class="faq-item" data-category="general">
+          <div class="faq-question">Where is the KBN University campus located? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">The main green university campus is located at Rauza-i Buzurg, Kalaburagi, Karnataka 585104.</div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">What makes the SGT & NIAT upskilling program special? <i class="fa-solid fa-plus"></i></div>
-          <div class="faq-answer">Our program features hands-on real-world AI projects, mentorship by industry experts, direct clinical rotations at the 800-bed SGT hospital, and placement support with 2500+ hiring companies.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">Where is the SGT University campus located? <i class="fa-solid fa-plus"></i></div>
-          <div class="faq-answer">The 100-acre green campus is located at Chandu-Budhera, Gurugram-Badli Road, Gurugram, Haryana 122505, near Delhi-NCR.</div>
-        </div>
-
-        <div class="faq-item">
+        <!-- Enrollment Category -->
+        <div class="faq-item" data-category="enrollment" style="display: none;">
           <div class="faq-question">What are the eligibility criteria for MBBS, B.Tech & MBA? <i class="fa-solid fa-plus"></i></div>
           <div class="faq-answer">MBBS requires 10+2 PCB (50%+) and NEET UG qualification. B.Tech requires 10+2 PCM (50%+) or JEE Main score. MBA requires graduation in any discipline with 50%+ marks.</div>
+        </div>
+        <div class="faq-item" data-category="enrollment" style="display: none;">
+          <div class="faq-question">How can I apply for Admissions 2026-27 online? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Click on the red "Apply Now" button in the top menu or complete the Quick Admission Enquiry form to get instant counselor guidance.</div>
+        </div>
+
+        <!-- NAT Test Category -->
+        <div class="faq-item" data-category="nat" style="display: none;">
+          <div class="faq-question">What is the NAT Assessment Test and scholarship criteria? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">NAT (National Aptitude Test) evaluates problem-solving, logical reasoning, and technical aptitude. High scorers qualify for up to 100% tuition fee scholarships.</div>
+        </div>
+        <div class="faq-item" data-category="nat" style="display: none;">
+          <div class="faq-question">How do I attempt the online NAT test? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Upon registration, an online test link with your login credentials will be emailed to you. You can attempt the test from home using a webcam.</div>
+        </div>
+
+        <!-- Curriculum Category -->
+        <div class="faq-item" data-category="curriculum" style="display: none;">
+          <div class="faq-question">What makes the KBN & NIAT upskilling program special? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Our program features hands-on real-world AI projects, mentorship by top product engineers, clinical rotations, and placement support with 2500+ hiring companies.</div>
+        </div>
+        <div class="faq-item" data-category="curriculum" style="display: none;">
+          <div class="faq-question">Are real-world AI projects included in the curriculum? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Yes! Every student completes 10+ industry-grade projects in Full Stack Web Development, Machine Learning, Data Science, and Robotics.</div>
+        </div>
+
+        <!-- Placements Category -->
+        <div class="faq-item" data-category="placements" style="display: none;">
+          <div class="faq-question">What is the average stipend and placement support provided? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">NIATians have secured over ₹2.92 Crore in internship stipends with highest CTC packages reaching up to ₹57 LPA.</div>
+        </div>
+        <div class="faq-item" data-category="placements" style="display: none;">
+          <div class="faq-question">Which top companies hire from KBN & NIAT cohorts? <i class="fa-solid fa-plus"></i></div>
+          <div class="faq-answer">Hiring partners include Amazon, D.E. Shaw, Meesho, Walmart, Accenture, Prodapt, Deloitte, and 2500+ global tech recruiters.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER SECTION -->
-  <footer class="footer" id="footer" style="background:#002B49; color:#94A3B8; padding: 4rem 0 2rem 0;">
-    <div class="container">
-      <div class="footer-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:3rem;">
-        <div class="footer-col">
-          <h2 style="color:#FFF; font-size:1.5rem; margin-bottom:1rem;">SGT UNIVERSITY</h2>
-          <p>Shree Guru Gobind Singh Tricentenary University, Gurugram, Delhi-NCR. NAAC A+ Accredited.</p>
+  <!-- FOOTER SECTION (NIAT INDIA PITCH BLACK FOOTER) -->
+  <footer class="footer-niat-black" id="footer" style="background:#000000; color:#FFFFFF; padding: 4rem 0 2rem 0; font-family: inherit;">
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;">
+      <div class="footer-grid-4col" style="display: grid; grid-template-columns: 1.4fr 1.1fr 1.1fr 1.2fr; gap: 2.5rem; padding-bottom: 3rem;">
+        
+        <!-- Column 1: Brand & Logo -->
+        <div class="footer-col-brand">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 52px; height: 52px; border: 2px solid #E5E7EB; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #000; color: #FFF; font-weight: 800; font-size: 0.85rem; line-height: 1.1; text-align: center;">
+              <span>NI</span><span>AT</span>
+            </div>
+            <div>
+              <h3 style="color: #FFFFFF; font-size: 1.15rem; font-weight: 700; margin: 0; line-height: 1.3;">NxtWave of Innovation in<br>Advanced Technologies</h3>
+              <span style="color: #9CA3AF; font-size: 0.75rem; font-weight: 500; display: block; margin-top: 4px;">Khaja Bandanawaz University Collab</span>
+            </div>
+          </div>
         </div>
-        <div class="footer-col">
-          <h4 style="color:#FFF; margin-bottom:1rem;">Direct Section Links</h4>
-          <ul class="footer-links" style="list-style:none; line-height:2;">
-            <li><a href="#stats" style="color:#CBD5E1;">#stats - SGT Photo Stats Bar</a></li>
-            <li><a href="#niat-outcomes" style="color:#CBD5E1;">#niat-outcomes - NIAT Outcomes Cards</a></li>
-            <li><a href="#placements-hover" style="color:#CBD5E1;">#placements-hover - Top Placements Hover Cards</a></li>
-            <li><a href="#niat-benefits" style="color:#CBD5E1;">#niat-benefits - Exclusive Benefits Bar</a></li>
-            <li><a href="#disciplines" style="color:#CBD5E1;">#disciplines - 3D Discipline Carousel</a></li>
-            <li><a href="#know-sgt" style="color:#CBD5E1;">#know-sgt - Know SGT Info (GITAM Style)</a></li>
-            <li><a href="#events" style="color:#CBD5E1;">#events - Upcoming Events (GITAM Style)</a></li>
-            <li><a href="#reviews" style="color:#CBD5E1;">#reviews - Student Reviews (GITAM Style)</a></li>
-            <li><a href="#stories-carousel" style="color:#CBD5E1;">#stories-carousel - Learner Skill Stories</a></li>
-            <li><a href="#life-sgt" style="color:#CBD5E1;">#life-sgt - Hackathon Video Banner</a></li>
-            <li><a href="#faq" style="color:#CBD5E1;">#faq - Frequently Asked Questions</a></li>
+
+        <!-- Column 2: Quick Link -->
+        <div class="footer-col-nav">
+          <h4 style="color: #FFFFFF; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Quick Link</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
+            <li><a href="#faq" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">NAT</a></li>
+            <li><a href="#disciplines" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">Our Tech</a></li>
+            <li><a href="#apply-modal" class="btn-open-apply" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">Assessment Test</a></li>
+            <li><a href="#chat-window" id="footer-counsellor-link" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">Talk to Counsellor</a></li>
+            <li><a href="#niat-benefits" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">University Collabs</a></li>
+            <li><a href="#niat-outcomes" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">Discover NIAT Effect</a></li>
+            <li><a href="#niat-benefits" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">NIAT Advantage</a></li>
+            <li><a href="#life-sgt" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">AI Bootcamp</a></li>
+            <li><a href="#stories-carousel" style="color: #E5E7EB; text-decoration: none; transition: color 0.2s;">NIAT Masterclass</a></li>
           </ul>
         </div>
+
+        <!-- Column 3: Reach Us -->
+        <div class="footer-col-reach">
+          <h4 style="color: #FFFFFF; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem;">Reach Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.95rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem; color: #FFFFFF; margin-top: 2px;"></i>
+              <div>
+                <strong style="color: #FFFFFF; font-size: 1rem; display: block;">+91 8008 9009 08</strong>
+                <span style="color: #9CA3AF; font-size: 0.85rem;">(WhatsApp only)</span>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fa-regular fa-envelope" style="font-size: 1.2rem; color: #FFFFFF;"></i>
+              <a href="mailto:support@niatindia.com" style="color: #FFFFFF; text-decoration: none; font-size: 0.95rem; font-weight: 500;">support@niatindia.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 4: Address -->
+        <div class="footer-col-address">
+          <h4 style="color: #FFFFFF; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-location-dot" style="font-size: 1rem;"></i> Address:
+          </h4>
+          <p style="color: #E5E7EB; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+            <strong>NIAT & KBN Campus</strong><br>
+            Rauza-i Buzurg, Kalaburagi,<br>
+            Karnataka 585104
+          </p>
+        </div>
+
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:2rem; padding-top:1.5rem; text-align:center;">
-        <p>&copy; 2026 SGT University. Direct Local Access Ready.</p>
+
+      <!-- Divider line -->
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); margin-top: 1rem; padding-top: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+        
+        <!-- Social Icons -->
+        <div class="footer-social-icons" style="display: flex; align-items: center; gap: 1.25rem; font-size: 1.2rem;">
+          <a href="#" style="color: #FFFFFF; transition: color 0.2s;"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" style="color: #FFFFFF; transition: color 0.2s;"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" style="color: #FFFFFF; transition: color 0.2s;"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" style="color: #FFFFFF; transition: color 0.2s;"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" style="color: #FFFFFF; transition: color 0.2s;"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="footer-legal-links" style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; color: #E5E7EB;">
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Cookie Policy</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Terms of use</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Grievance</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Corporate</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Vision and Values</a>
+          <a href="#" style="color: #E5E7EB; text-decoration: none;">Refund Policy</a>
+        </div>
+
       </div>
     </div>
   </footer>

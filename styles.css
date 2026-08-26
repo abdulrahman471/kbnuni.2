@@ -210,40 +210,52 @@ img { max-width: 100%; display: block; }
    ========================================================================== */
 
 .sgt-stats-section {
-  padding: 3.5rem 0;
-  background: #FFFFFF;
+  padding: 4.5rem 0;
+  background: #F8FAFC;
 }
 
 .sgt-stats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 280px 1fr 1fr;
+  grid-template-rows: 240px 240px;
   gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .stats-card {
   position: relative;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  height: 240px;
-  background: #061A35;
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  background: #0B192C;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease;
 }
 
 .stats-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
 }
 
-.stats-card-tall { grid-row: span 2; height: 500px; }
-.stats-card-wide { grid-column: span 2; }
+.stats-card:hover .stats-card-bg {
+  transform: scale(1.08);
+}
+
+.stats-card-tall {
+  grid-row: span 2;
+}
+
+.stats-card-wide {
+  grid-column: span 1;
+}
 
 .stats-card-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.85;
+  opacity: 0.88;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .stats-card-overlay {
@@ -252,19 +264,32 @@ img { max-width: 100%; display: block; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(6,26,53,0.7) 0%, rgba(6,26,53,0.3) 50%, rgba(6,26,53,0.85) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.1) 40%, rgba(15, 23, 42, 0.85) 100%);
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   color: #FFFFFF;
 }
 
 .stats-card-overlay h3 {
-  font-size: 2.6rem;
-  font-weight: 800;
+  font-size: 2.8rem;
+  font-weight: 900;
   color: #FFFFFF;
   line-height: 1;
+  margin: 0 0 0.4rem 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  letter-spacing: -0.5px;
 }
+
+.stats-card-overlay p {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F1F5F9;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
 
 /* ==========================================================================
    NIAT INDIA TOP PLACEMENTS HOVER CARDS
@@ -756,6 +781,191 @@ img { max-width: 100%; display: block; }
 .toast-container { position: fixed; top: 2rem; right: 2rem; z-index: 4000; display: flex; flex-direction: column; gap: 0.75rem; }
 .toast { background: var(--sgt-navy); color: #FFF; padding: 0.85rem 1.4rem; border-radius: 8px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 0.6rem; border-left: 4px solid var(--sgt-yellow); }
 
+/* ==========================================================================
+   3D PERSPECTIVE CAROUSEL & INTERACTIVE ANIMATIONS
+   ========================================================================== */
+.carousel-3d-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  perspective: 1200px;
+}
+
+.carousel-3d-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-card {
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  background: #000;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%);
+  color: #FFFFFF;
+}
+
+.carousel-card-caption h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.carousel-card-caption p {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+}
+
+/* 3D Positions */
+.carousel-card.pos-center {
+  transform: translateX(0) scale(1.1) translateZ(100px);
+  z-index: 10;
+  opacity: 1;
+  border: 2px solid var(--niat-coral);
+}
+
+.carousel-card.pos-left-1 {
+  transform: translateX(-220px) scale(0.9) translateZ(0) rotateY(15deg);
+  z-index: 5;
+  opacity: 0.85;
+}
+
+.carousel-card.pos-left-2 {
+  transform: translateX(-380px) scale(0.75) translateZ(-100px) rotateY(25deg);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.carousel-card.pos-right-1 {
+  transform: translateX(220px) scale(0.9) translateZ(0) rotateY(-15deg);
+  z-index: 5;
+  opacity: 0.85;
+}
+
+.carousel-card.pos-right-2 {
+  transform: translateX(380px) scale(0.75) translateZ(-100px) rotateY(-25deg);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.carousel-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #002B49;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.carousel-nav-arrow.arrow-left { left: -10px; }
+.carousel-nav-arrow.arrow-right { right: -10px; }
+.carousel-nav-arrow:hover { background: var(--niat-coral); transform: translateY(-50%) scale(1.1); }
+
+/* EXCLUSIVE BENEFITS TABS */
+.niat-nav-tab {
+  padding: 0.65rem 1.25rem;
+  border-radius: 25px;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.niat-nav-tab:hover, .niat-nav-tab.active {
+  background: #002B49;
+  color: #FFFFFF;
+  border-color: #002B49;
+  box-shadow: 0 4px 12px rgba(0, 43, 73, 0.25);
+}
+
+/* SCROLL REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes softFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.3) rotate(15deg); opacity: 1; }
+}
+
+.advisor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(254, 243, 199, 0.75) !important;
+}
+
+.gitam-event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 104, 56, 0.14) !important;
+}
+
+.gitam-event-card:hover a span {
+  transform: translateX(4px);
+}
+
+.gitam-review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 104, 56, 0.12) !important;
+}
+
+#student-chat-badge:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.24) !important;
+}
+
+
 @media (max-width: 1024px) {
   .sgt-stats-grid { grid-template-columns: 1fr 1fr; }
   .stats-card-tall { grid-row: span 1; height: 240px; }
@@ -763,4 +973,22 @@ img { max-width: 100%; display: block; }
   .hero-grid { grid-template-columns: 1fr; }
   .happenings-grid { grid-template-columns: 1fr; }
   .know-sgt-grid { grid-template-columns: 1fr; }
+  .footer-grid-5col, .footer-grid-4col { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+  .carousel-card.pos-left-2, .carousel-card.pos-right-2 { display: none; }
+  .achievements-banner-card { grid-template-columns: 1fr !important; padding: 2.5rem 1.5rem !important; }
+  .advisors-section div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
 }
+
+@media (max-width: 640px) {
+  .footer-grid-5col, .footer-grid-4col { grid-template-columns: 1fr !important; }
+  .footer-niat-black .footer-legal-links { flex-direction: column; align-items: flex-start; gap: 0.75rem !important; }
+  .carousel-3d-container { height: 320px; }
+  .carousel-card { width: 220px; height: 300px; }
+  .carousel-card.pos-left-1 { transform: translateX(-100px) scale(0.85); }
+  .carousel-card.pos-right-1 { transform: translateX(100px) scale(0.85); }
+  .niat-sticky-header nav { display: none !important; }
+}
+
+
+
+
